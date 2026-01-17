@@ -12,12 +12,19 @@
     <!-- Top Recommendation (Center or Prominent) -->
     <div *ngIf="bestMatch" class="lg:col-span-3">
         <div class="glass-panel p-8 rounded-2xl border-cyan-500/30 relative overflow-hidden group">
+            <!-- Score Ribbon (Desktop) -->
             <div
-                class="absolute top-0 right-0 p-4 bg-cyan-500/20 rounded-bl-2xl text-cyan-300 font-mono text-sm border-l border-b border-cyan-500/30">
+                class="hidden md:block absolute top-0 right-0 p-4 bg-cyan-500/20 rounded-bl-2xl text-cyan-300 font-mono text-sm border-l border-b border-cyan-500/30">
                 {{ 'RESULTS.MATCH_SCORE' | translate }}: {{ bestMatch.matchScore }}%
             </div>
 
             <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                <!-- Score Badge (Mobile) -->
+                <div
+                    class="md:hidden bg-cyan-500/10 px-4 py-1.5 rounded-full border border-cyan-500/30 text-cyan-400 font-mono text-xs uppercase tracking-wider mb-2">
+                    {{ 'RESULTS.MATCH_SCORE' | translate }}: {{ bestMatch.matchScore }}%
+                </div>
+
                 <!-- Logo Area -->
                 <div class="shrink-0 relative">
                     <div
