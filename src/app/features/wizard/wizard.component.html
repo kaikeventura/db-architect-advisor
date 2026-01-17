@@ -1,59 +1,60 @@
-<div class="w-full max-w-4xl mx-auto p-6 md:p-10">
-  <!-- Progress Bar -->
-  <div class="mb-8 align-middle">
-    <div class="flex justify-between text-sm text-cyan-400 mb-2 font-mono">
-      <span>SYSTEM_INITIALIZATION...</span>
-      <span>{{ progress }}%</span>
-    </div>
-    <div class="h-1 bg-slate-800 rounded-full overflow-hidden">
-      <div class="h-full bg-cyan-400 shadow-[0_0_10px_#00d4ff] transition-all duration-500 ease-out"
-           [style.width.%]="progress">
-      </div>
+<!-- Progress Bar -->
+<div class="mb-8 align-middle">
+  <div class="flex justify-between text-sm text-cyan-400 mb-2 font-mono">
+    <span>SYSTEM_INITIALIZATION...</span>
+    <span>{{ progress }}%</span>
+  </div>
+  <div class="h-1 bg-slate-800 rounded-full overflow-hidden">
+    <div class="h-full bg-cyan-400 shadow-[0_0_10px_#00d4ff] transition-all duration-500 ease-out"
+      [style.width.%]="progress">
     </div>
   </div>
+</div>
 
-  <!-- Question Container -->
-  <div class="glass-panel p-8 md:p-12 rounded-2xl min-h-[400px] relative overflow-hidden">
-    
-    <!-- Animated Transition Container -->
-    <div class="transition-opacity duration-300 ease-in-out">
-      
-      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
-        <span class="text-cyan-400 mr-2">0{{ questions[currentStep()].id }}</span>
-        {{ questions[currentStep()].title }}
-      </h2>
-      
-      <p class="text-slate-300 text-lg mb-10 max-w-2xl">
-        {{ questions[currentStep()].description }}
-      </p>
+<!-- Question Container -->
+<div class="glass-panel p-8 md:p-12 rounded-2xl min-h-[400px] relative overflow-hidden">
 
-      <!-- Options Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <button *ngFor="let option of questions[currentStep()].options"
-                (click)="selectOption(questions[currentStep()].key, option.value)"
-                class="group glass-card text-left p-6 rounded-xl hover:bg-slate-800/50 transition-all relative overflow-hidden">
-          
-          <!-- Hover Glow Effect -->
-          <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          
-          <div class="relative z-10 flex items-start gap-4">
-            <div class="p-3 rounded-lg bg-slate-900/50 text-cyan-300 group-hover:scale-110 transition-transform neon-border">
-              <!-- Icon placeholder logic handled via class or Lucide component if set up -->
-              <i-lucide [name]="option.icon || 'circle'" class="w-6 h-6"></i-lucide>
-            </div>
-            
-            <div>
-              <h3 class="text-xl font-semibold text-white mb-1 group-hover:text-cyan-300 transition-colors">
-                {{ option.label }}
-              </h3>
-              <p *ngIf="option.desc" class="text-sm text-slate-400 group-hover:text-slate-200">
-                {{ option.desc }}
-              </p>
-            </div>
+  <!-- Animated Transition Container -->
+  <div class="transition-opacity duration-300 ease-in-out">
+
+    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+      <span class="text-cyan-400 mr-2">0{{ questions[currentStep()].id }}</span>
+      {{ questions[currentStep()].title | translate }}
+    </h2>
+
+    <p class="text-slate-300 text-lg mb-10 max-w-2xl">
+      {{ questions[currentStep()].description }}
+    </p>
+
+    <!-- Options Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <button *ngFor="let option of questions[currentStep()].options"
+        (click)="selectOption(questions[currentStep()].key, option.value)"
+        class="group glass-card text-left p-6 rounded-xl hover:bg-slate-800/50 transition-all relative overflow-hidden">
+
+        <!-- Hover Glow Effect -->
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity">
+        </div>
+
+        <div class="relative z-10 flex items-start gap-4">
+          <div
+            class="p-3 rounded-lg bg-slate-900/50 text-cyan-300 group-hover:scale-110 transition-transform neon-border">
+            <!-- Icon placeholder logic handled via class or Lucide component if set up -->
+            <i-lucide [name]="option.icon || 'circle'" class="w-6 h-6"></i-lucide>
           </div>
-        </button>
-      </div>
 
+          <div>
+            <h3 class="text-xl font-semibold text-white mb-1 group-hover:text-cyan-300 transition-colors">
+              {{ option.label }}
+            </h3>
+            <p *ngIf="option.desc" class="text-sm text-slate-400 group-hover:text-slate-200">
+              {{ option.desc }}
+            </p>
+          </div>
+        </div>
+      </button>
     </div>
+
   </div>
 </div>

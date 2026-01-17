@@ -1,0 +1,36 @@
+{
+    "HOME": {
+        "TITLE": "DB ARCHITECT ADVISOR",
+        "SUBTITLE": "Find the perfect database for your next big project.",
+        "START_BTN": "Start Analysis",
+        "RESTART_BTN": "Restart Analysis"
+    },
+    "WIZARD": {
+        "PROGRESS": "Progress",
+        "BACK": "Back",
+        "NEXT": "Next",
+        "FINISH": "See Recommendations",
+        "Q_CAP": "Which CAP Theorem attribute is non-negotiable?",
+        "Q_STRUCTURE": "What fits your data model best?",
+        "Q_PACELC": "How critical is latency vs consistency (PACELC)?",
+        "Q_BUDGET": "What is the project budget tier?"
+    },
+    "RESULTS": {
+        "TITLE": "OPTIMAL DATABASE FOUND",
+        "SUBTITLE": "Based on your architectural requirements",
+        "MATCH_SCORE": "MATCH SCORE",
+        "ANALYZING_FIT": "ANALYZING FIT",
+        "TRADEOFFS": "TRADE-OFFS",
+        "ALTERNATIVES": "Alternative Viable Options",
+        "METRICS": {
+            "CAP": "CAP",
+            "SCALABILITY": "Scalability",
+            "COMPLEXITY": "Complexity",
+            "COST": "Cost"
+        }
+    },
+    "COMMON": {
+        "LOADING": "Loading...",
+        "ERROR": "Something went wrong."
+    }
+}

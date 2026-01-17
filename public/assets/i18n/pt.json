@@ -1,0 +1,36 @@
+{
+    "HOME": {
+        "TITLE": "DB ARCHITECT ADVISOR",
+        "SUBTITLE": "Encontre o banco de dados ideal para seu próximo grande projeto.",
+        "START_BTN": "Iniciar Análise",
+        "RESTART_BTN": "Reiniciar Análise"
+    },
+    "WIZARD": {
+        "PROGRESS": "Progresso",
+        "BACK": "Voltar",
+        "NEXT": "Próximo",
+        "FINISH": "Ver Recomendações",
+        "Q_CAP": "Qual atributo do Teorema CAP é inegociável?",
+        "Q_STRUCTURE": "Qual estrutura de dados se adapta melhor?",
+        "Q_PACELC": "Quão crítica é latência vs consistência (PACELC)?",
+        "Q_BUDGET": "Qual a faixa de orçamento do projeto?"
+    },
+    "RESULTS": {
+        "TITLE": "BANCO DE DADOS IDEAL",
+        "SUBTITLE": "Baseado nos seus requisitos arquiteturais",
+        "MATCH_SCORE": "COMPATIBILIDADE",
+        "ANALYZING_FIT": "ANÁLISE DE ADERÊNCIA",
+        "TRADEOFFS": "PONTOS DE ATENÇÃO",
+        "ALTERNATIVES": "Alternativas Viáveis",
+        "METRICS": {
+            "CAP": "CAP",
+            "SCALABILITY": "Escalabilidade",
+            "COMPLEXITY": "Complexidade",
+            "COST": "Custo"
+        }
+    },
+    "COMMON": {
+        "LOADING": "Carregando...",
+        "ERROR": "Algo deu errado."
+    }
+}

@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { RecommendationEngineService } from '../core/services/recommendation.service';
 import { Database, QuestionnaireInput, RecommendationResult } from '../core/models/database.model';
 import { LucideAngularModule } from 'lucide-angular';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-results',
   standalone: true,
   imports: [
     CommonModule,
-    LucideAngularModule
+    LucideAngularModule,
+    TranslateModule
   ],
   templateUrl: './results.html',
   styles: []

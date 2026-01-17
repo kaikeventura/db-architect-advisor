@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QuestionnaireInput } from '../../core/models/database.model';
 import { LucideAngularModule, ArrowRight, Check, Disc, Database, Layers, DollarSign, Activity, FileJson, Share2, Search, Table, Key, Lock, AlertTriangle } from 'lucide-angular';
+import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 
 interface Question {
     id: number;
@@ -16,7 +17,9 @@ interface Question {
     standalone: true,
     imports: [
         CommonModule,
-        LucideAngularModule
+        LucideAngularModule,
+        TranslateModule,
+        TranslatePipe
     ],
     providers: [],
     templateUrl: './wizard.component.html',
@@ -31,7 +34,7 @@ export class WizardComponent {
     questions: Question[] = [
         {
             id: 1,
-            title: 'CAP Theorem: Network Failure',
+            title: 'WIZARD.Q_CAP',
             description: 'In the event of a network partition, what is your priority?',
             key: 'consistencyPreference',
             options: [
@@ -51,7 +54,7 @@ export class WizardComponent {
         },
         {
             id: 2,
-            title: 'Data Structure',
+            title: 'WIZARD.Q_STRUCTURE',
             description: 'What is the predominant shape of your data?',
             key: 'dataStructure',
             options: [
@@ -65,7 +68,7 @@ export class WizardComponent {
         },
         {
             id: 3,
-            title: 'PACELC: Latency vs Consistency',
+            title: 'WIZARD.Q_PACELC',
             description: 'During normal operation, how sensitive is your application to latency?',
             key: 'latencySensitivity',
             options: [
@@ -75,7 +78,7 @@ export class WizardComponent {
         },
         {
             id: 4,
-            title: 'Budget & Complexity',
+            title: 'WIZARD.Q_BUDGET',
             description: 'What is your operational budget and tolerance for complexity?',
             key: 'budget',
             options: [

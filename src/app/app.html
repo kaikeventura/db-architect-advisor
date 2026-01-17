@@ -18,18 +18,22 @@
       </div>
       <div>
         <h1 class="text-xl font-bold text-white tracking-widest uppercase">
-          DB<span class="text-cyan-400">Architect</span>
+          {{ 'HOME.TITLE' | translate }}
         </h1>
         <p class="text-xs text-slate-400 font-mono tracking-wide">ADVISOR_SYSTEM_V1.0</p>
       </div>
     </div>
 
-    <div *ngIf="!showWizard" class="hidden md:block">
-      <button (click)="restart()"
-        class="text-sm text-slate-400 hover:text-white flex items-center gap-2 px-4 py-2 border border-slate-700 rounded-full hover:bg-slate-800 transition-colors">
-        <i-lucide name="brain-circuit" class="w-4 h-4"></i-lucide>
-        Restart Analysis
-      </button>
+    <div class="flex items-center gap-4">
+      <app-language-switcher></app-language-switcher>
+
+      <div *ngIf="!showWizard" class="hidden md:block">
+        <button (click)="restart()"
+          class="text-sm text-slate-400 hover:text-white flex items-center gap-2 px-4 py-2 border border-slate-700 rounded-full hover:bg-slate-800 transition-colors">
+          <i-lucide name="brain-circuit" class="w-4 h-4"></i-lucide>
+          {{ 'HOME.RESTART_BTN' | translate }}
+        </button>
+      </div>
     </div>
   </header>
 
