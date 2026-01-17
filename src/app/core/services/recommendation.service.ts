@@ -22,17 +22,16 @@ export class RecommendationEngineService {
             if (input.consistencyPreference === 'Strong') {
                 if (db.theorems.cap === 'CP' || db.theorems.cap === 'CA' || db.theorems.pacelc?.includes('PC')) {
                     score += 30;
-                    reasons.push('Prioritizes Consistency (Matches your CAP preference)');
+                    reasons.push('RESULTS.REASONS.PRIORITIZES_CONSISTENCY');
                 } else {
                     score -= 10;
-                    tradeOffs.push('Eventual Consistency model conflicts with Strong Consistency requirement');
+                    tradeOffs.push('RESULTS.TRADEOFFS.CONSISTENCY_CONFLICT');
                 }
             } else { // Eventual
                 if (db.theorems.cap === 'AP' || db.theorems.pacelc?.includes('PA')) {
                     score += 30;
-                    reasons.push('High Availability prioritized (Matches your CAP preference)');
+                    reasons.push('RESULTS.REASONS.PRIORITIZES_AVAILABILITY');
                 } else {
-                    // CP databases can often still be used but might not be optimized for pure availability during partitions
                     score += 10;
                 }
             }
@@ -40,10 +39,10 @@ export class RecommendationEngineService {
             // 2. Data Structure
             if (db.type === input.dataStructure) {
                 score += 25;
-                reasons.push(`Native ${db.type} support`);
+                reasons.push('RESULTS.REASONS.NATIVE_SUPPORT');
             } else if (this.isCompatible(input.dataStructure, db.type)) {
                 score += 10;
-                reasons.push(`${db.name} can support ${input.dataStructure} data`);
+                reasons.push('RESULTS.REASONS.COMPATIBLE_SUPPORT');
             } else {
                 score -= 20;
             }
@@ -52,11 +51,10 @@ export class RecommendationEngineService {
             if (input.latencySensitivity === 'High') {
                 if (db.id === 'redis' || db.id === 'dynamodb' || db.theorems.pacelc?.includes('EL')) {
                     score += 20;
-                    reasons.push('Optimized for low latency');
+                    reasons.push('RESULTS.REASONS.LOW_LATENCY');
                 } else if (db.id === 'postgresql' || db.theorems.pacelc?.includes('EC')) {
-                    // Postgres is fast, but distributed EC might sacrifice latency for consistency
                     score += 10;
-                    tradeOffs.push('Consistency checks may impact latentcy in distributed setups');
+                    tradeOffs.push('RESULTS.TRADEOFFS.LATENCY_IMPACT');
                 }
             }
 
@@ -66,14 +64,14 @@ export class RecommendationEngineService {
 
             if (db.costTier <= userBudget) {
                 score += 15;
-                reasons.push('Fits within budget category');
+                reasons.push('RESULTS.REASONS.FITS_BUDGET');
             } else {
                 score -= 10;
-                tradeOffs.push('Higher cost tier than preferred');
+                tradeOffs.push('RESULTS.TRADEOFFS.HIGHER_COST');
             }
 
             return {
-                matchScore: Math.max(0, score), // Normalize to 0 minimum
+                matchScore: Math.max(0, score),
                 database: db,
                 matchReasons: reasons,
                 tradeOffs: tradeOffs

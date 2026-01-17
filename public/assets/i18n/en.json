@@ -6,28 +6,454 @@
         "RESTART_BTN": "Restart Analysis"
     },
     "WIZARD": {
+        "SYSTEM_INIT": "SYSTEM_INITIALIZATION...",
         "PROGRESS": "Progress",
         "BACK": "Back",
         "NEXT": "Next",
         "FINISH": "See Recommendations",
-        "Q_CAP": "Which CAP Theorem attribute is non-negotiable?",
-        "Q_STRUCTURE": "What fits your data model best?",
-        "Q_PACELC": "How critical is latency vs consistency (PACELC)?",
-        "Q_BUDGET": "What is the project budget tier?"
+        "Q_CAP": {
+            "TITLE": "Which CAP Theorem attribute is non-negotiable?",
+            "DESC": "In the event of a network partition, what is your priority?",
+            "OPT_CONSISTENCY": {
+                "LABEL": "Consistency (CP)",
+                "DESC": "System guarantees data correctness, even if it has to pause requests."
+            },
+            "OPT_AVAILABILITY": {
+                "LABEL": "Availability (AP)",
+                "DESC": "System guarantees a response, even if the data might be slightly outdated."
+            }
+        },
+        "Q_STRUCTURE": {
+            "TITLE": "What fits your data model best?",
+            "DESC": "What is the predominant shape of your data?",
+            "OPT_RELATIONAL": "Relational (Tables)",
+            "OPT_DOCUMENT": "JSON Documents",
+            "OPT_KEYVALUE": "Key-Value Pairs",
+            "OPT_GRAPH": "Graph / Relationships",
+            "OPT_WIDECOLUMN": "Wide Column",
+            "OPT_VECTOR": "Vector Search",
+            "OPT_SEARCH": "Search Engine"
+        },
+        "Q_PACELC": {
+            "TITLE": "How critical is latency vs consistency (PACELC)?",
+            "DESC": "During normal operation, how sensitive is your application to latency?",
+            "OPT_LATENCY": {
+                "LABEL": "Latency Critical",
+                "DESC": "Every millisecond counts (Real-time, Gaming)."
+            },
+            "OPT_CONSISTENCY": {
+                "LABEL": "Consistency Critical",
+                "DESC": "I prefer stricter data integrity over raw speed."
+            }
+        },
+        "Q_BUDGET": {
+            "TITLE": "What is the project budget tier?",
+            "DESC": "What is your operational budget and tolerance for complexity?",
+            "OPT_LOW": "Low Cost / Open Source",
+            "OPT_MEDIUM": "Medium / Managed Services",
+            "OPT_HIGH": "High / Enterprise Scale"
+        }
     },
     "RESULTS": {
         "TITLE": "OPTIMAL DATABASE FOUND",
         "SUBTITLE": "Based on your architectural requirements",
         "MATCH_SCORE": "MATCH SCORE",
-        "ANALYZING_FIT": "ANALYZING FIT",
-        "TRADEOFFS": "TRADE-OFFS",
+        "LABEL_ANALYZING_FIT": "ANALYZING FIT",
+        "LABEL_TRADEOFFS": "TRADE-OFFS",
+        "LABEL_USE_CASES": "BEST FIT FOR",
         "ALTERNATIVES": "Alternative Viable Options",
+        "REASONS": {
+            "PRIORITIZES_CONSISTENCY": "Matches your Strong Consistency requirement.",
+            "PRIORITIZES_AVAILABILITY": "Matches your High Availability preference.",
+            "CONSISTENCY_CONFLICT": "Stricter than your consistency requirement.",
+            "NATIVE_SUPPORT": "Native data format support.",
+            "COMPATIBLE_SUPPORT": "Supports requested data through extensions/layers.",
+            "LOW_LATENCY": "Optimized for ultra-low latency response.",
+            "FITS_BUDGET": "Fits within your budget constraints."
+        },
+        "TRADEOFFS": {
+            "CONSISTENCY_CONFLICT": "Eventual Consistency model may require app-side handling.",
+            "LATENCY_IMPACT": "Consistency checks may impact latency in distributed setups.",
+            "HIGHER_COST": "Higher cost tier than preferred budget."
+        },
         "METRICS": {
             "CAP": "CAP",
             "SCALABILITY": "Scalability",
             "COMPLEXITY": "Complexity",
             "COST": "Cost"
         }
+    },
+    "DB_KNOWLEDGE": {
+        "POSTGRESQL": {
+            "DESCRIPTION": "The world's most advanced open source relational database.",
+            "STRENGTH_1": "ACID Compliance",
+            "STRENGTH_2": "Complex Queries",
+            "STRENGTH_3": "Extensibility (PostGIS, pgvector)",
+            "STRENGTH_4": "Reliability",
+            "WEAKNESS_1": "Horizontal scaling complexity",
+            "WEAKNESS_2": "Write throughput at massive scale",
+            "USE_CASE_1": "Financial Systems",
+            "USE_CASE_2": "E-commerce",
+            "USE_CASE_3": "Geospatial Data",
+            "USE_CASE_4": "General Purpose"
+        },
+        "COCKROACHDB": {
+            "DESCRIPTION": "Distributed SQL database built to survive disk, machine, rack, and even datacenter failures.",
+            "STRENGTH_1": "Geo-partitioning",
+            "STRENGTH_2": "Survival of region failures",
+            "STRENGTH_3": "Distributed ACID",
+            "STRENGTH_4": "Postgres compatible",
+            "WEAKNESS_1": "Higher latency than single-node SQL",
+            "WEAKNESS_2": "Complexity of deployment",
+            "USE_CASE_1": "Global Inventory",
+            "USE_CASE_2": "Financial Ledgers",
+            "USE_CASE_3": "Multi-region Apps"
+        },
+        "TIDB": {
+            "DESCRIPTION": "Open-source, distributed SQL database that supports Hybrid Transactional and Analytical Processing (HTAP).",
+            "STRENGTH_1": "HTAP (OLTP + OLAP)",
+            "STRENGTH_2": "MySQL Compatibility",
+            "STRENGTH_3": "Horizontal Scalability",
+            "WEAKNESS_1": "Operational complexity",
+            "WEAKNESS_2": "Resource intensive",
+            "USE_CASE_1": "Real-time Analytics",
+            "USE_CASE_2": "High-volume Transactional Systems"
+        },
+        "YUGABYTEDB": {
+            "DESCRIPTION": "High-performance, cloud-native distributed SQL database that guarantees 100% Postgres compatibility.",
+            "STRENGTH_1": "Postgres & Cassandra APIs",
+            "STRENGTH_2": "Geo-distribution",
+            "STRENGTH_3": "Low latency writes",
+            "WEAKNESS_1": "Memory consumption",
+            "WEAKNESS_2": "Learning curve for tuning",
+            "USE_CASE_1": "Microservices",
+            "USE_CASE_2": "Internet Scale Apps",
+            "USE_CASE_3": "Edge Computing"
+        },
+        "AURORA": {
+            "DESCRIPTION": "MySQL and PostgreSQL-compatible relational database built for the cloud.",
+            "STRENGTH_1": "Auto-scaling",
+            "STRENGTH_2": "Storage separation",
+            "STRENGTH_3": "High Availability",
+            "WEAKNESS_1": "Cold starts (v1)",
+            "WEAKNESS_2": "Cost predictability",
+            "WEAKNESS_3": "Vendor Lock-in",
+            "USE_CASE_1": "SaaS Applications",
+            "USE_CASE_2": "Variable Workloads",
+            "USE_CASE_3": "Enterprise ERP"
+        },
+        "MONGODB": {
+            "DESCRIPTION": "The most popular modern database for flexible schemas.",
+            "STRENGTH_1": "Flexible Schema",
+            "STRENGTH_2": "Developer Experience",
+            "STRENGTH_3": "Horizontal Scaling",
+            "WEAKNESS_1": "Complex Transactions",
+            "WEAKNESS_2": "Joins performance",
+            "USE_CASE_1": "Content Management",
+            "USE_CASE_2": "Log Data",
+            "USE_CASE_3": "Mobile Apps",
+            "USE_CASE_4": "Catalogs"
+        },
+        "DYNAMODB": {
+            "DESCRIPTION": "Serverless, NoSQL database with single-digit millisecond performance at any scale.",
+            "STRENGTH_1": "Serverless",
+            "STRENGTH_2": "Auto-scaling",
+            "STRENGTH_3": "Integration with AWS",
+            "WEAKNESS_1": "Query flexibility",
+            "WEAKNESS_2": "Vendor Lock-in",
+            "WEAKNESS_3": "Cost at scale",
+            "WEAKNESS_4": "Item size limits",
+            "USE_CASE_1": "Serverless Apps",
+            "USE_CASE_2": "Gaming",
+            "USE_CASE_3": "Mobile Backends"
+        },
+        "REDIS": {
+            "DESCRIPTION": "In-memory data store used as a database, cache, and message broker.",
+            "STRENGTH_1": "Microsecond Latency",
+            "STRENGTH_2": "Simple Structures",
+            "STRENGTH_3": "Versatility",
+            "WEAKNESS_1": "RAM limited",
+            "WEAKNESS_2": "Persistence complexity",
+            "USE_CASE_1": "Caching",
+            "USE_CASE_2": "Session Store",
+            "USE_CASE_3": "Real-time Analytics",
+            "USE_CASE_4": "Leaderboards"
+        },
+        "CASSANDRA": {
+            "DESCRIPTION": "Manage massive amounts of data across many servers without a single point of failure.",
+            "STRENGTH_1": "Linear Scalability",
+            "STRENGTH_2": "High Write Throughput",
+            "STRENGTH_3": "Global Distribution",
+            "STRENGTH_4": "Zero Downtime",
+            "WEAKNESS_1": "No Joins",
+            "WEAKNESS_2": "Rigid Schema Design",
+            "WEAKNESS_3": "Complexity of operation",
+            "USE_CASE_1": "IoT Sensor Data",
+            "USE_CASE_2": "Messaging Systems",
+            "USE_CASE_3": "Activity Tracking"
+        },
+        "SCYLLADB": {
+            "DESCRIPTION": "High-performance NoSQL database API-compatible with Apache Cassandra.",
+            "STRENGTH_1": "C++ Performance",
+            "STRENGTH_2": "Low Latency",
+            "STRENGTH_3": "Self-tuning",
+            "WEAKNESS_1": "Smaller ecosystem than Cassandra",
+            "WEAKNESS_2": "Strict hardware requirements",
+            "USE_CASE_1": "AdTech",
+            "USE_CASE_2": "High-frequency Trading",
+            "USE_CASE_3": "Real-time IoT"
+        },
+        "INFLUXDB": {
+            "DESCRIPTION": "Purpose-built time series database.",
+            "STRENGTH_1": "High compression",
+            "STRENGTH_2": "Time-centric query language (Flux/SQL)",
+            "STRENGTH_3": "Built-in tasks",
+            "WEAKNESS_1": "Cardinality limits",
+            "WEAKNESS_2": "Clustering is enterprise-only",
+            "USE_CASE_1": "Infrastructure Monitoring",
+            "USE_CASE_2": "IoT",
+            "USE_CASE_3": "Sensor Networks"
+        },
+        "TIMESCALEDB": {
+            "DESCRIPTION": "PostgreSQL++ for time-series and events.",
+            "STRENGTH_1": "Full SQL",
+            "STRENGTH_2": "Postgres ecosystem",
+            "STRENGTH_3": "Hypertables",
+            "WEAKNESS_1": "Write scaling vs Influx",
+            "WEAKNESS_2": "Disk usage",
+            "USE_CASE_1": "Financial Market Data",
+            "USE_CASE_2": "Industrial IoT",
+            "USE_CASE_3": "Metrics"
+        },
+        "PROMETHEUS": {
+            "DESCRIPTION": "Monitoring system and time series database.",
+            "STRENGTH_1": "Pull model",
+            "STRENGTH_2": "Alertmanager",
+            "STRENGTH_3": "Cloud Native Standard",
+            "WEAKNESS_1": "Long-term storage (needs Thanos)",
+            "WEAKNESS_2": "Not for event logging",
+            "USE_CASE_1": "Kubernetes Monitoring",
+            "USE_CASE_2": "System Metrics"
+        },
+        "PINECONE": {
+            "DESCRIPTION": "Managed vector database for machine learning applications.",
+            "STRENGTH_1": "Fully Managed",
+            "STRENGTH_2": "High performance search",
+            "STRENGTH_3": "Metadata filtering",
+            "WEAKNESS_1": "Cost at high volume",
+            "WEAKNESS_2": "Fully proprietary",
+            "USE_CASE_1": "Semantic Search",
+            "USE_CASE_2": "LLM RAG",
+            "USE_CASE_3": "Recommendation Systems"
+        },
+        "MILVUS": {
+            "DESCRIPTION": "Cloud-native, open-source vector database built for scalable similarity search.",
+            "STRENGTH_1": "High throughput",
+            "STRENGTH_2": "Cloud-native architecture",
+            "STRENGTH_3": "Hybrid search",
+            "WEAKNESS_1": "Operational complexity",
+            "WEAKNESS_2": "Resource hungry",
+            "USE_CASE_1": "Visual Search",
+            "USE_CASE_2": "Biometrics",
+            "USE_CASE_3": "GenAI"
+        },
+        "WEAVIATE": {
+            "DESCRIPTION": "Open source vector search engine with out-of-the-box modules.",
+            "STRENGTH_1": "Modular ecosystem",
+            "STRENGTH_2": "GraphQL API",
+            "STRENGTH_3": "Hybrid search",
+            "WEAKNESS_1": "Learning curve of modules",
+            "WEAKNESS_2": "Memory usage",
+            "USE_CASE_1": "Knowledge base search",
+            "USE_CASE_2": "Classification",
+            "USE_CASE_3": "Image search"
+        },
+        "CHROMADB": {
+            "DESCRIPTION": "The AI-native open-source embedding database.",
+            "STRENGTH_1": "Developer friendly",
+            "STRENGTH_2": "Simple Python API",
+            "STRENGTH_3": "Lightweight",
+            "WEAKNESS_1": "Less mature for massive scale",
+            "WEAKNESS_2": "Limited advanced features",
+            "USE_CASE_1": "Local LLM development",
+            "USE_CASE_2": "Prototyping",
+            "USE_CASE_3": "Small-medium RAG"
+        },
+        "PGVECTOR": {
+            "DESCRIPTION": "Open-source vector similarity search for PostgreSQL.",
+            "STRENGTH_1": "Keep data in Postgres",
+            "STRENGTH_2": "ACID compliant vectors",
+            "STRENGTH_3": "No new infra",
+            "WEAKNESS_1": "Scale limit vs dedicated vector DBs",
+            "WEAKNESS_2": "Index build time",
+            "USE_CASE_1": "Hybrid SQL+Vector search",
+            "USE_CASE_2": "Simplifying stack"
+        },
+        "NEO4J": {
+            "DESCRIPTION": "The world's leading graph database.",
+            "STRENGTH_1": "Relationship Traversal",
+            "STRENGTH_2": "Cypher Query Language",
+            "STRENGTH_3": "Data Visualization",
+            "WEAKNESS_1": "Horizontal Scaling (Sharding)",
+            "WEAKNESS_2": "Write throughput",
+            "USE_CASE_1": "Fraud Detection",
+            "USE_CASE_2": "Recommendation Engines",
+            "USE_CASE_3": "Knowledge Graphs"
+        },
+        "ARANGODB": {
+            "DESCRIPTION": "Native multi-model database for graph, document, and key-value.",
+            "STRENGTH_1": "AQL (One query language for all)",
+            "STRENGTH_2": "Versatility",
+            "STRENGTH_3": "Foxx Microservices",
+            "WEAKNESS_1": "Master-Slave architecture limits write scale",
+            "WEAKNESS_2": "Jack of all trades",
+            "USE_CASE_1": "Complex Data Models",
+            "USE_CASE_2": "Graph + Metadata",
+            "USE_CASE_3": "Content Management"
+        },
+        "DGRAPH": {
+            "DESCRIPTION": "Horizontal scalable, distributed, native graph database.",
+            "STRENGTH_1": "Native Distributed Graph",
+            "STRENGTH_2": "GraphQL native",
+            "STRENGTH_3": "High throughput",
+            "WEAKNESS_1": "Newer ecosystem",
+            "WEAKNESS_2": "Resource management",
+            "USE_CASE_1": "Customer 360",
+            "USE_CASE_2": "Social Networks",
+            "USE_CASE_3": "Real-time Recommendation"
+        },
+        "FAUNA": {
+            "DESCRIPTION": "Distributed document-relational database delivered as a global API.",
+            "STRENGTH_1": "Global Strong Consistency",
+            "STRENGTH_2": "Serverless",
+            "STRENGTH_3": "ACID",
+            "WEAKNESS_1": "Proprietary Query Language (FQL)",
+            "WEAKNESS_2": "Latency floor",
+            "USE_CASE_1": "Global Apps",
+            "USE_CASE_2": "Financial Ledger",
+            "USE_CASE_3": "Gaming"
+        },
+        "COSMOSDB": {
+            "DESCRIPTION": "Microsoft's globally distributed, multi-model database service.",
+            "STRENGTH_1": "5 Consistency Levels",
+            "STRENGTH_2": "SLA guarantees",
+            "STRENGTH_3": "Multi-API (SQL, Mongo, Cassandra)",
+            "WEAKNESS_1": "Cost complexity",
+            "WEAKNESS_2": "Throttling logic",
+            "USE_CASE_1": "Global Retail",
+            "USE_CASE_2": "IoT Telemetry",
+            "USE_CASE_3": "Personalization"
+        },
+        "FIRESTORE": {
+            "DESCRIPTION": "Flexible, scalable database for mobile, web, and server development.",
+            "STRENGTH_1": "Real-time updates",
+            "STRENGTH_2": "Offline support",
+            "STRENGTH_3": "Integration with Firebase",
+            "WEAKNESS_1": "Write limits per document",
+            "WEAKNESS_2": "Query limitations (No aggregation)",
+            "USE_CASE_1": "Mobile Apps",
+            "USE_CASE_2": "Live Collaboration",
+            "USE_CASE_3": "User Profiles"
+        },
+        "SPANNER": {
+            "DESCRIPTION": "Fully managed relational database with unlimited scale and strong consistency.",
+            "STRENGTH_1": "Global ACID Transactions",
+            "STRENGTH_2": "Unlimited Scale",
+            "STRENGTH_3": "99.999% Availability",
+            "WEAKNESS_1": "Very Expensive",
+            "WEAKNESS_2": "High latency floor",
+            "WEAKNESS_3": "Warm-up time",
+            "USE_CASE_1": "Global Banking",
+            "USE_CASE_2": "Massive Scale Inventory",
+            "USE_CASE_3": "Critical Systems"
+        },
+        "SNOWFLAKE": {
+            "DESCRIPTION": "Cloud computing-based data cloud company.",
+            "STRENGTH_1": "Separation of Compute/Storage",
+            "STRENGTH_2": "Data Sharing",
+            "STRENGTH_3": "Zero Maintenance",
+            "WEAKNESS_1": "Cost can explode",
+            "WEAKNESS_2": "Latency not for OLTP",
+            "USE_CASE_1": "Data Warehousing",
+            "USE_CASE_2": "Data Lake",
+            "USE_CASE_3": "Business Intelligence"
+        },
+        "CLICKHOUSE": {
+            "DESCRIPTION": "Fast open-source OLAP database management system.",
+            "STRENGTH_1": "Incredible Query Speed",
+            "STRENGTH_2": "Compression",
+            "STRENGTH_3": "Real-time Analytics",
+            "WEAKNESS_1": "No full transactions",
+            "WEAKNESS_2": "Deletes/Updates are expensive",
+            "USE_CASE_1": "Log Analysis",
+            "USE_CASE_2": "AdTech",
+            "USE_CASE_3": "Telemetry visualization"
+        },
+        "BIGQUERY": {
+            "DESCRIPTION": "Serverless, highly scalable, and cost-effective multi-cloud data warehouse.",
+            "STRENGTH_1": "Serverless",
+            "STRENGTH_2": "Integration with Google ecosystem",
+            "STRENGTH_3": "ML capabilities",
+            "WEAKNESS_1": "Slot contention",
+            "WEAKNESS_2": "Cost per query model",
+            "USE_CASE_1": "Big Data Analytics",
+            "USE_CASE_2": "Predictive Modeling",
+            "USE_CASE_3": "Marketing Analytics"
+        },
+        "DUCKDB": {
+            "DESCRIPTION": "In-process SQL OLAP database management system.",
+            "STRENGTH_1": "Fast local analytics",
+            "STRENGTH_2": "Zero dependencies",
+            "STRENGTH_3": "Vectorized execution",
+            "WEAKNESS_1": "Not for distributed clusters",
+            "WEAKNESS_2": "Single writer",
+            "USE_CASE_1": "Local data analysis",
+            "USE_CASE_2": "Data pipelines",
+            "USE_CASE_3": "Embedded analytics"
+        },
+        "SQLITE": {
+            "DESCRIPTION": "C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine.",
+            "STRENGTH_1": "Ubiquitous",
+            "STRENGTH_2": "Zero configuration",
+            "STRENGTH_3": "Single file",
+            "WEAKNESS_1": "Concurrency (High writes)",
+            "WEAKNESS_2": "No network access built-in",
+            "USE_CASE_1": "Mobile Apps",
+            "USE_CASE_2": "IoT",
+            "USE_CASE_3": "Desktop Apps",
+            "USE_CASE_4": "Testing"
+        },
+        "REALM": {
+            "DESCRIPTION": "Mobile database enabling offline-first applications.",
+            "STRENGTH_1": "Offline-first sync",
+            "STRENGTH_2": "Object-oriented",
+            "STRENGTH_3": "Reactive",
+            "WEAKNESS_1": "Vendor lock (MongoDB Atlas)",
+            "WEAKNESS_2": "Schema migrations",
+            "USE_CASE_1": "Mobile Offline Apps",
+            "USE_CASE_2": "Gaming",
+            "USE_CASE_3": "IoT Edge"
+        },
+        "ELASTICSEARCH": {
+            "DESCRIPTION": "Distributed, RESTful search and analytics engine.",
+            "STRENGTH_1": "Full-text Search",
+            "STRENGTH_2": "Log Analytics",
+            "STRENGTH_3": "Complex Aggregations",
+            "WEAKNESS_1": "Data durability (not primary store)",
+            "WEAKNESS_2": "Resource Heavy",
+            "USE_CASE_1": "Search",
+            "USE_CASE_2": "Observability",
+            "USE_CASE_3": "Security analysis"
+        }
+    },
+    "DATA_STRUCTURE": {
+        "Relational": "Relational",
+        "Document": "Document",
+        "Key-Value": "Key-Value",
+        "Graph": "Graph",
+        "Wide-Column": "Wide-Column",
+        "Vector": "Vector",
+        "Search Engine": "Search Engine"
     },
     "COMMON": {
         "LOADING": "Loading...",

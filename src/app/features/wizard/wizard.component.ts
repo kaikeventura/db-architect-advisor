@@ -34,57 +34,58 @@ export class WizardComponent {
     questions: Question[] = [
         {
             id: 1,
-            title: 'WIZARD.Q_CAP',
-            description: 'In the event of a network partition, what is your priority?',
+            title: 'WIZARD.Q_CAP.TITLE',
+            description: 'WIZARD.Q_CAP.DESC',
             key: 'consistencyPreference',
             options: [
                 {
-                    label: 'Consistency (CP)',
+                    label: 'WIZARD.Q_CAP.OPT_CONSISTENCY.LABEL',
                     value: 'Strong',
                     icon: 'lock',
-                    desc: 'System guarantees data correctness, even if it has to pause requests.'
+                    desc: 'WIZARD.Q_CAP.OPT_CONSISTENCY.DESC'
                 },
                 {
-                    label: 'Availability (AP)',
+                    label: 'WIZARD.Q_CAP.OPT_AVAILABILITY.LABEL',
                     value: 'Eventual',
                     icon: 'activity',
-                    desc: 'System guarantees a response, even if the data might be slightly outdated.'
+                    desc: 'WIZARD.Q_CAP.OPT_AVAILABILITY.DESC'
                 }
             ]
         },
         {
             id: 2,
-            title: 'WIZARD.Q_STRUCTURE',
-            description: 'What is the predominant shape of your data?',
+            title: 'WIZARD.Q_STRUCTURE.TITLE',
+            description: 'WIZARD.Q_STRUCTURE.DESC',
             key: 'dataStructure',
             options: [
-                { label: 'Relational (Tables)', value: 'Relational', icon: 'table' },
-                { label: 'JSON Documents', value: 'Document', icon: 'file-json' },
-                { label: 'Key-Value Pairs', value: 'Key-Value', icon: 'key' },
-                { label: 'Graph / Relationships', value: 'Graph', icon: 'share-2' },
-                { label: 'Wide Column', value: 'Wide-Column', icon: 'columns' },
-                { label: 'Search Engine', value: 'Search Engine', icon: 'search' }
+                { label: 'WIZARD.Q_STRUCTURE.OPT_RELATIONAL', value: 'Relational', icon: 'table' },
+                { label: 'WIZARD.Q_STRUCTURE.OPT_DOCUMENT', value: 'Document', icon: 'file-json' },
+                { label: 'WIZARD.Q_STRUCTURE.OPT_KEYVALUE', value: 'Key-Value', icon: 'zap' },
+                { label: 'WIZARD.Q_STRUCTURE.OPT_VECTOR', value: 'Vector', icon: 'brain-circuit' },
+                { label: 'WIZARD.Q_STRUCTURE.OPT_GRAPH', value: 'Graph', icon: 'share-2' },
+                { label: 'WIZARD.Q_STRUCTURE.OPT_WIDECOLUMN', value: 'Wide-Column', icon: 'columns' },
+                { label: 'WIZARD.Q_STRUCTURE.OPT_SEARCH', value: 'Search Engine', icon: 'search' }
             ]
         },
         {
             id: 3,
-            title: 'WIZARD.Q_PACELC',
-            description: 'During normal operation, how sensitive is your application to latency?',
+            title: 'WIZARD.Q_PACELC.TITLE',
+            description: 'WIZARD.Q_PACELC.DESC',
             key: 'latencySensitivity',
             options: [
-                { label: 'Latency Critical', value: 'High', desc: 'Every millisecond counts (Real-time, Gaming).' },
-                { label: 'Consistency Critical', value: 'Low', desc: 'I prefer stricter data integrity over raw speed.' }
+                { label: 'WIZARD.Q_PACELC.OPT_LATENCY.LABEL', value: 'High', desc: 'WIZARD.Q_PACELC.OPT_LATENCY.DESC' },
+                { label: 'WIZARD.Q_PACELC.OPT_CONSISTENCY.LABEL', value: 'Low', desc: 'WIZARD.Q_PACELC.OPT_CONSISTENCY.DESC' }
             ]
         },
         {
             id: 4,
-            title: 'WIZARD.Q_BUDGET',
-            description: 'What is your operational budget and tolerance for complexity?',
+            title: 'WIZARD.Q_BUDGET.TITLE',
+            description: 'WIZARD.Q_BUDGET.DESC',
             key: 'budget',
             options: [
-                { label: 'Low Cost / Open Source', value: 'Low' },
-                { label: 'Medium / Managed Services', value: 'Medium' },
-                { label: 'High / Enterprise Scale', value: 'High' }
+                { label: 'WIZARD.Q_BUDGET.OPT_LOW', value: 'Low' },
+                { label: 'WIZARD.Q_BUDGET.OPT_MEDIUM', value: 'Medium' },
+                { label: 'WIZARD.Q_BUDGET.OPT_HIGH', value: 'High' }
             ]
         }
     ];

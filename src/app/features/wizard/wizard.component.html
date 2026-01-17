@@ -1,7 +1,7 @@
 <!-- Progress Bar -->
 <div class="mb-8 align-middle">
   <div class="flex justify-between text-sm text-cyan-400 mb-2 font-mono">
-    <span>SYSTEM_INITIALIZATION...</span>
+    <span>{{ 'WIZARD.SYSTEM_INIT' | translate }}</span>
     <span>{{ progress }}%</span>
   </div>
   <div class="h-1 bg-slate-800 rounded-full overflow-hidden">
@@ -23,7 +23,7 @@
     </h2>
 
     <p class="text-slate-300 text-lg mb-10 max-w-2xl">
-      {{ questions[currentStep()].description }}
+      {{ questions[currentStep()].description | translate }}
     </p>
 
     <!-- Options Grid -->
@@ -46,10 +46,10 @@
 
           <div>
             <h3 class="text-xl font-semibold text-white mb-1 group-hover:text-cyan-300 transition-colors">
-              {{ option.label }}
+              {{ option.label | translate }}
             </h3>
             <p *ngIf="option.desc" class="text-sm text-slate-400 group-hover:text-slate-200">
-              {{ option.desc }}
+              {{ option.desc | translate }}
             </p>
           </div>
         </div>

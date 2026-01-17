@@ -6,28 +6,454 @@
         "RESTART_BTN": "Reiniciar Análise"
     },
     "WIZARD": {
+        "SYSTEM_INIT": "INICIALIZANDO_SISTEMA...",
         "PROGRESS": "Progresso",
         "BACK": "Voltar",
         "NEXT": "Próximo",
         "FINISH": "Ver Recomendações",
-        "Q_CAP": "Qual atributo do Teorema CAP é inegociável?",
-        "Q_STRUCTURE": "Qual estrutura de dados se adapta melhor?",
-        "Q_PACELC": "Quão crítica é latência vs consistência (PACELC)?",
-        "Q_BUDGET": "Qual a faixa de orçamento do projeto?"
+        "Q_CAP": {
+            "TITLE": "Qual atributo do Teorema CAP é inegociável?",
+            "DESC": "Em caso de uma partição de rede, qual é a sua prioridade?",
+            "OPT_CONSISTENCY": {
+                "LABEL": "Consistência (CP)",
+                "DESC": "O sistema garante a correção dos dados, mesmo que precise pausar requisições."
+            },
+            "OPT_AVAILABILITY": {
+                "LABEL": "Disponibilidade (AP)",
+                "DESC": "O sistema garante uma resposta, mesmo que os dados possam estar levemente desatualizados."
+            }
+        },
+        "Q_STRUCTURE": {
+            "TITLE": "Qual estrutura de dados se adapta melhor?",
+            "DESC": "Qual é o formato predominante dos seus dados?",
+            "OPT_RELATIONAL": "Relacional (Tabelas)",
+            "OPT_DOCUMENT": "Documentos JSON",
+            "OPT_KEYVALUE": "Chave-Valor",
+            "OPT_GRAPH": "Grafos / Relacionamentos",
+            "OPT_WIDECOLUMN": "Colunas Largas",
+            "OPT_VECTOR": "Busca Vetorial",
+            "OPT_SEARCH": "Motor de Busca"
+        },
+        "Q_PACELC": {
+            "TITLE": "Quão crítica é latência vs consistência (PACELC)?",
+            "DESC": "Durante a operação normal, quão sensível é sua aplicação à latência?",
+            "OPT_LATENCY": {
+                "LABEL": "Crítico para Latência",
+                "DESC": "Cada milissegundo conta (Tempo Real, Jogos)."
+            },
+            "OPT_CONSISTENCY": {
+                "LABEL": "Crítico para Consistência",
+                "DESC": "Prefiro integridade de dados estrita em vez de velocidade bruta."
+            }
+        },
+        "Q_BUDGET": {
+            "TITLE": "Qual a faixa de orçamento do projeto?",
+            "DESC": "Qual é o seu orçamento operacional e tolerância à complexidade?",
+            "OPT_LOW": "Baixo Custo / Open Source",
+            "OPT_MEDIUM": "Médio / Serviços Gerenciados",
+            "OPT_HIGH": "Alto / Escala Enterprise"
+        }
     },
     "RESULTS": {
         "TITLE": "BANCO DE DADOS IDEAL",
         "SUBTITLE": "Baseado nos seus requisitos arquiteturais",
         "MATCH_SCORE": "COMPATIBILIDADE",
-        "ANALYZING_FIT": "ANÁLISE DE ADERÊNCIA",
-        "TRADEOFFS": "PONTOS DE ATENÇÃO",
+        "LABEL_ANALYZING_FIT": "ANÁLISE DE ADERÊNCIA",
+        "LABEL_TRADEOFFS": "PONTOS DE ATENÇÃO",
+        "LABEL_USE_CASES": "IDEAL PARA",
         "ALTERNATIVES": "Alternativas Viáveis",
+        "REASONS": {
+            "PRIORITIZES_CONSISTENCY": "Atende ao requisito de Consistência Estrita.",
+            "PRIORITIZES_AVAILABILITY": "Prioriza Alta Disponibilidade conforme sua preferência.",
+            "CONSISTENCY_CONFLICT": "Modelo de consistência mais rígido que o solicitado.",
+            "NATIVE_SUPPORT": "Suporte nativo ao formato de dados.",
+            "COMPATIBLE_SUPPORT": "Suporta os dados solicitados via extensões ou camadas.",
+            "LOW_LATENCY": "Otimizado para respostas de ultra-baixa latência.",
+            "FITS_BUDGET": "Se ajusta à sua faixa de orçamento."
+        },
+        "TRADEOFFS": {
+            "CONSISTENCY_CONFLICT": "Modelo de Consistência Eventual pode exigir tratamento na aplicação.",
+            "LATENCY_IMPACT": "Verificações de consistência podem impactar latência em setups distribuídos.",
+            "HIGHER_COST": "Nível de custo superior ao orçamento preferencial."
+        },
         "METRICS": {
             "CAP": "CAP",
             "SCALABILITY": "Escalabilidade",
             "COMPLEXITY": "Complexidade",
             "COST": "Custo"
         }
+    },
+    "DB_KNOWLEDGE": {
+        "POSTGRESQL": {
+            "DESCRIPTION": "O banco de dados relacional de código aberto mais avançado do mundo.",
+            "STRENGTH_1": "Conformidade ACID",
+            "STRENGTH_2": "Consultas Complexas",
+            "STRENGTH_3": "Extensibilidade (PostGIS, pgvector)",
+            "STRENGTH_4": "Confiabilidade",
+            "WEAKNESS_1": "Complexidade de escalabilidade horizontal",
+            "WEAKNESS_2": "Taxa de escrita em escala massiva",
+            "USE_CASE_1": "Sistemas Financeiros",
+            "USE_CASE_2": "E-commerce",
+            "USE_CASE_3": "Dados Geoespaciais",
+            "USE_CASE_4": "Propósito Geral"
+        },
+        "COCKROACHDB": {
+            "DESCRIPTION": "Banco de dados SQL distribuído construído para sobreviver a falhas de disco, máquina, rack e até datacenter.",
+            "STRENGTH_1": "Geo-particionamento",
+            "STRENGTH_2": "Sobrevivência a falhas de região",
+            "STRENGTH_3": "ACID Distribuído",
+            "STRENGTH_4": "Compatível com Postgres",
+            "WEAKNESS_1": "Latência maior que SQL de nó único",
+            "WEAKNESS_2": "Complexidade de implantação",
+            "USE_CASE_1": "Inventário Global",
+            "USE_CASE_2": "Ledgers Financeiros",
+            "USE_CASE_3": "Apps Multi-região"
+        },
+        "TIDB": {
+            "DESCRIPTION": "Banco de dados SQL distribuído e de código aberto que suporta Processamento Transacional e Analítico Híbrido (HTAP).",
+            "STRENGTH_1": "HTAP (OLTP + OLAP)",
+            "STRENGTH_2": "Compatibilidade com MySQL",
+            "STRENGTH_3": "Escalabilidade Horizontal",
+            "WEAKNESS_1": "Complexidade operacional",
+            "WEAKNESS_2": "Uso intensivo de recursos",
+            "USE_CASE_1": "Analytics em Tempo Real",
+            "USE_CASE_2": "Sistemas Transacionais de Alto Volume"
+        },
+        "YUGABYTEDB": {
+            "DESCRIPTION": "Banco de dados SQL distribuído de alto desempenho e nativo da nuvem que garante 100% de compatibilidade com Postgres.",
+            "STRENGTH_1": "APIs Postgres e Cassandra",
+            "STRENGTH_2": "Geo-distribuição",
+            "STRENGTH_3": "Baixa latência de escrita",
+            "WEAKNESS_1": "Consumo de memória",
+            "WEAKNESS_2": "Curva de aprendizado para ajuste",
+            "USE_CASE_1": "Microserviços",
+            "USE_CASE_2": "Apps em Escala de Internet",
+            "USE_CASE_3": "Edge Computing"
+        },
+        "AURORA": {
+            "DESCRIPTION": "Banco de dados relacional compatível com MySQL e PostgreSQL construído para a nuvem.",
+            "STRENGTH_1": "Auto-escalonamento",
+            "STRENGTH_2": "Separação de armazenamento",
+            "STRENGTH_3": "Alta Disponibilidade",
+            "WEAKNESS_1": "Cold starts (v1)",
+            "WEAKNESS_2": "Previsibilidade de custo",
+            "WEAKNESS_3": "Bloqueio de fornecedor",
+            "USE_CASE_1": "Aplicações SaaS",
+            "USE_CASE_2": "Cargas de Trabalho Variáveis",
+            "USE_CASE_3": "ERP Enterprise"
+        },
+        "MONGODB": {
+            "DESCRIPTION": "O banco de dados moderno mais popular para schemas flexíveis.",
+            "STRENGTH_1": "Schema Flexível",
+            "STRENGTH_2": "Experiência do Desenvolvedor",
+            "STRENGTH_3": "Escalabilidade Horizontal",
+            "WEAKNESS_1": "Transações Complexas",
+            "WEAKNESS_2": "Performance de Joins",
+            "USE_CASE_1": "Gestão de Conteúdo",
+            "USE_CASE_2": "Dados de Log",
+            "USE_CASE_3": "Apps Mobile",
+            "USE_CASE_4": "Catálogos"
+        },
+        "DYNAMODB": {
+            "DESCRIPTION": "Banco de dados NoSQL serverless com desempenho de milissegundos de um dígito em qualquer escala.",
+            "STRENGTH_1": "Serverless",
+            "STRENGTH_2": "Auto-escalonamento",
+            "STRENGTH_3": "Integração com AWS",
+            "WEAKNESS_1": "Flexibilidade de consulta",
+            "WEAKNESS_2": "Bloqueio de fornecedor",
+            "WEAKNESS_3": "Custo em escala",
+            "WEAKNESS_4": "Limites de tamanho de item",
+            "USE_CASE_1": "Apps Serverless",
+            "USE_CASE_2": "Jogos",
+            "USE_CASE_3": "Backends Mobile"
+        },
+        "REDIS": {
+            "DESCRIPTION": "Armazenamento de dados em memória usado como banco de dados, cache e message broker.",
+            "STRENGTH_1": "Latência de Microssegundos",
+            "STRENGTH_2": "Estruturas Simples",
+            "STRENGTH_3": "Versatilidade",
+            "WEAKNESS_1": "Limitado pela RAM",
+            "WEAKNESS_2": "Complexidade de persistência",
+            "USE_CASE_1": "Caching",
+            "USE_CASE_2": "Armazenamento de Sessão",
+            "USE_CASE_3": "Analytics em Tempo Real",
+            "USE_CASE_4": "Rankings (Leaderboards)"
+        },
+        "CASSANDRA": {
+            "DESCRIPTION": "Gerencie quantidades massivas de dados em muitos servidores sem um único ponto de falha.",
+            "STRENGTH_1": "Escalabilidade Linear",
+            "STRENGTH_2": "Alta Taxa de Escrita",
+            "STRENGTH_3": "Distribuição Global",
+            "STRENGTH_4": "Zero Downtime",
+            "WEAKNESS_1": "Sem Joins",
+            "WEAKNESS_2": "Design de Schema Rígido",
+            "WEAKNESS_3": "Complexidade de operação",
+            "USE_CASE_1": "Dados de Sensores IoT",
+            "USE_CASE_2": "Sistemas de Mensagens",
+            "USE_CASE_3": "Rastreamento de Atividade"
+        },
+        "SCYLLADB": {
+            "DESCRIPTION": "Banco de dados NoSQL de alto desempenho compatível com a API do Apache Cassandra.",
+            "STRENGTH_1": "Performance C++",
+            "STRENGTH_2": "Baixa Latência",
+            "STRENGTH_3": "Auto-ajuste",
+            "WEAKNESS_1": "Ecossistema menor que o Cassandra",
+            "WEAKNESS_2": "Requisitos rígidos de hardware",
+            "USE_CASE_1": "AdTech",
+            "USE_CASE_2": "Trading de Alta Frequência",
+            "USE_CASE_3": "IoT em Tempo Real"
+        },
+        "INFLUXDB": {
+            "DESCRIPTION": "Banco de dados de séries temporais construído especificamente.",
+            "STRENGTH_1": "Alta compressão",
+            "STRENGTH_2": "Linguagem centrada em tempo (Flux/SQL)",
+            "STRENGTH_3": "Tarefas integradas",
+            "WEAKNESS_1": "Limites de cardinalidade",
+            "WEAKNESS_2": "Clusterização é apenas enterprise",
+            "USE_CASE_1": "Monitoramento de Infraestrutura",
+            "USE_CASE_2": "IoT",
+            "USE_CASE_3": "Redes de Sensores"
+        },
+        "TIMESCALEDB": {
+            "DESCRIPTION": "PostgreSQL++ para séries temporais e eventos.",
+            "STRENGTH_1": "SQL Completo",
+            "STRENGTH_2": "Ecossistema Postgres",
+            "STRENGTH_3": "Hypertables",
+            "WEAKNESS_1": "Escala de escrita vs Influx",
+            "WEAKNESS_2": "Uso de disco",
+            "USE_CASE_1": "Dados de Mercado Financeiro",
+            "USE_CASE_2": "IoT Industrial",
+            "USE_CASE_3": "Métricas"
+        },
+        "PROMETHEUS": {
+            "DESCRIPTION": "Sistema de monitoramento e banco de dados de séries temporais.",
+            "STRENGTH_1": "Modelo Pull",
+            "STRENGTH_2": "Alertmanager",
+            "STRENGTH_3": "Padrão Cloud Native",
+            "WEAKNESS_1": "Armazenamento de longo prazo (precisa de Thanos)",
+            "WEAKNESS_2": "Não é para logging de eventos",
+            "USE_CASE_1": "Monitoramento de Kubernetes",
+            "USE_CASE_2": "Métricas de Sistema"
+        },
+        "PINECONE": {
+            "DESCRIPTION": "Banco de dados vetorial gerenciado para aplicações de aprendizado de máquina.",
+            "STRENGTH_1": "Totalmente Gerenciado",
+            "STRENGTH_2": "Busca de alto desempenho",
+            "STRENGTH_3": "Filtragem de metadados",
+            "WEAKNESS_1": "Custo em alto volume",
+            "WEAKNESS_2": "Totalmente proprietário",
+            "USE_CASE_1": "Busca Semântica",
+            "USE_CASE_2": "LLM RAG",
+            "USE_CASE_3": "Sistemas de Recomendação"
+        },
+        "MILVUS": {
+            "DESCRIPTION": "Banco de dados vetorial nativo da nuvem e de código aberto construído para busca de similaridade escalável.",
+            "STRENGTH_1": "Alta taxa de transferência",
+            "STRENGTH_2": "Arquitetura nativa da nuvem",
+            "STRENGTH_3": "Busca híbrida",
+            "WEAKNESS_1": "Complexidade operacional",
+            "WEAKNESS_2": "Consumo de recursos",
+            "USE_CASE_1": "Busca Visual",
+            "USE_CASE_2": "Biometria",
+            "USE_CASE_3": "GenAI"
+        },
+        "WEAVIATE": {
+            "DESCRIPTION": "Motor de busca vetorial de código aberto com módulos prontos para uso.",
+            "STRENGTH_1": "Ecossistema modular",
+            "STRENGTH_2": "API GraphQL",
+            "STRENGTH_3": "Busca híbrida",
+            "WEAKNESS_1": "Curva de aprendizado dos módulos",
+            "WEAKNESS_2": "Uso de memória",
+            "USE_CASE_1": "Busca em base de conhecimento",
+            "USE_CASE_2": "Classificação",
+            "USE_CASE_3": "Busca de imagens"
+        },
+        "CHROMADB": {
+            "DESCRIPTION": "O banco de dados de embeddings nativo para IA de código aberto.",
+            "STRENGTH_1": "Amigável ao desenvolvedor",
+            "STRENGTH_2": "API Python simples",
+            "STRENGTH_3": "Leve",
+            "WEAKNESS_1": "Menos maduro para escala massiva",
+            "WEAKNESS_2": "Recursos avançados limitados",
+            "USE_CASE_1": "Desenvolvimento Local de LLM",
+            "USE_CASE_2": "Prototipagem",
+            "USE_CASE_3": "RAG de pequeno/médio porte"
+        },
+        "PGVECTOR": {
+            "DESCRIPTION": "Busca de similaridade vetorial de código aberto para PostgreSQL.",
+            "STRENGTH_1": "Mantenha dados no Postgres",
+            "STRENGTH_2": "Vetores compatíveis com ACID",
+            "STRENGTH_3": "Sem nova infra",
+            "WEAKNESS_1": "Limite de escala vs DBs vetoriais dedicados",
+            "WEAKNESS_2": "Tempo de construção de índice",
+            "USE_CASE_1": "Busca híbrida SQL+Vetor",
+            "USE_CASE_2": "Simplificando a stack"
+        },
+        "NEO4J": {
+            "DESCRIPTION": "O banco de dados de grafos líder mundial.",
+            "STRENGTH_1": "Travessia de Relacionamentos",
+            "STRENGTH_2": "Linguagem Cypher",
+            "STRENGTH_3": "Visualização de Dados",
+            "WEAKNESS_1": "Escalonamento Horizontal",
+            "WEAKNESS_2": "Taxa de escrita",
+            "USE_CASE_1": "Detecção de Fraude",
+            "USE_CASE_2": "Motores de Recomendação",
+            "USE_CASE_3": "Grafos de Conhecimento"
+        },
+        "ARANGODB": {
+            "DESCRIPTION": "Banco de dados multi-modelo nativo para grafos, documentos e chave-valor.",
+            "STRENGTH_1": "AQL (Uma linguagem para tudo)",
+            "STRENGTH_2": "Versatilidade",
+            "STRENGTH_3": "Microserviços Foxx",
+            "WEAKNESS_1": "Arquitetura Master-Slave limita escrita",
+            "WEAKNESS_2": "Pau para toda obra",
+            "USE_CASE_1": "Modelos de Dados Complexos",
+            "USE_CASE_2": "Grafos + Metadados",
+            "USE_CASE_3": "Gestão de Conteúdo"
+        },
+        "DGRAPH": {
+            "DESCRIPTION": "Banco de dados de grafos nativo, distribuído e escalável horizontalmente.",
+            "STRENGTH_1": "Grafo Distribuído Nativo",
+            "STRENGTH_2": "GraphQL nativo",
+            "STRENGTH_3": "Alta taxa de transferência",
+            "WEAKNESS_1": "Ecossistema novo",
+            "WEAKNESS_2": "Gestão de recursos",
+            "USE_CASE_1": "Visão 360 do Cliente",
+            "USE_CASE_2": "Redes Sociais",
+            "USE_CASE_3": "Recomendação em Tempo Real"
+        },
+        "FAUNA": {
+            "DESCRIPTION": "Banco de dados documento-relacional distribuído entregue como uma API global.",
+            "STRENGTH_1": "Consistência Forte Global",
+            "STRENGTH_2": "Serverless",
+            "STRENGTH_3": "ACID",
+            "WEAKNESS_1": "Linguagem Proprietária (FQL)",
+            "WEAKNESS_2": "Piso de latência",
+            "USE_CASE_1": "Apps Globais",
+            "USE_CASE_2": "Ledger Financeiro",
+            "USE_CASE_3": "Jogos"
+        },
+        "COSMOSDB": {
+            "DESCRIPTION": "Serviço de banco de dados multi-modelo e distribuído globalmente da Microsoft.",
+            "STRENGTH_1": "5 Níveis de Consistência",
+            "STRENGTH_2": "Garantias de SLA",
+            "STRENGTH_3": "Multi-API (SQL, Mongo, Cassandra)",
+            "WEAKNESS_1": "Complexidade de custo",
+            "WEAKNESS_2": "Lógica de throttling",
+            "USE_CASE_1": "Varejo Global",
+            "USE_CASE_2": "Telemetria IoT",
+            "USE_CASE_3": "Personalização"
+        },
+        "FIRESTORE": {
+            "DESCRIPTION": "Banco de dados flexível e escalável para desenvolvimento móvel, web e servidor.",
+            "STRENGTH_1": "Atualizações em tempo real",
+            "STRENGTH_2": "Suporte offline",
+            "STRENGTH_3": "Integração com Firebase",
+            "WEAKNESS_1": "Limites de escrita por documento",
+            "WEAKNESS_2": "Limitações de consulta (sem agregação)",
+            "USE_CASE_1": "Apps Mobile",
+            "USE_CASE_2": "Colaboração ao Vivo",
+            "USE_CASE_3": "Perfis de Usuário"
+        },
+        "SPANNER": {
+            "DESCRIPTION": "Banco de dados relacional totalmente gerenciado com escala ilimitada e consistência forte.",
+            "STRENGTH_1": "Transações ACID Globais",
+            "STRENGTH_2": "Escala Ilimitada",
+            "STRENGTH_3": "99.999% de Disponibilidade",
+            "WEAKNESS_1": "Muito Caro",
+            "WEAKNESS_2": "Piso de latência alto",
+            "WEAKNESS_3": "Tempo de aquecimento",
+            "USE_CASE_1": "Banca Global",
+            "USE_CASE_2": "Inventário em Escala Massiva",
+            "USE_CASE_3": "Sistemas Críticos"
+        },
+        "SNOWFLAKE": {
+            "DESCRIPTION": "Empresa de dados em nuvem baseada em computação em nuvem.",
+            "STRENGTH_1": "Separação de Computação/Armazenamento",
+            "STRENGTH_2": "Compartilhamento de Dados",
+            "STRENGTH_3": "Zero Manutenção",
+            "WEAKNESS_1": "Custo pode explodir",
+            "WEAKNESS_2": "Latência não é para OLTP",
+            "USE_CASE_1": "Data Warehousing",
+            "USE_CASE_2": "Data Lake",
+            "USE_CASE_3": "Business Intelligence"
+        },
+        "CLICKHOUSE": {
+            "DESCRIPTION": "Sistema de gestão de banco de dados OLAP de código aberto rápido.",
+            "STRENGTH_1": "Velocidade de Consulta Incrível",
+            "STRENGTH_2": "Compressão",
+            "STRENGTH_3": "Analytics em Tempo Real",
+            "WEAKNESS_1": "Sem transações completas",
+            "WEAKNESS_2": "Deletes/Updates são caros",
+            "USE_CASE_1": "Análise de Logs",
+            "USE_CASE_2": "AdTech",
+            "USE_CASE_3": "Visualização de Telemetria"
+        },
+        "BIGQUERY": {
+            "DESCRIPTION": "Data warehouse multi-cloud, serverless, altamente escalável e econômico.",
+            "STRENGTH_1": "Serverless",
+            "STRENGTH_2": "Integração com ecossistema Google",
+            "STRENGTH_3": "Capacidades de ML",
+            "WEAKNESS_1": "Contenda de slots",
+            "WEAKNESS_2": "Modelo de custo por consulta",
+            "USE_CASE_1": "Analytics de Big Data",
+            "USE_CASE_2": "Modelagem Preditiva",
+            "USE_CASE_3": "Analytics de Marketing"
+        },
+        "DUCKDB": {
+            "DESCRIPTION": "Sistema de gestão de banco de dados OLAP SQL em processo.",
+            "STRENGTH_1": "Analytics local rápido",
+            "STRENGTH_2": "Zero dependências",
+            "STRENGTH_3": "Execução vetorizada",
+            "WEAKNESS_1": "Não é para clusters distribuídos",
+            "WEAKNESS_2": "Escritor único",
+            "USE_CASE_1": "Análise de dados local",
+            "USE_CASE_2": "Pipelines de dados",
+            "USE_CASE_3": "Analytics embutido"
+        },
+        "SQLITE": {
+            "DESCRIPTION": "Biblioteca em linguagem C que implementa um motor de banco de dados SQL pequeno, rápido, independente e de alta confiabilidade.",
+            "STRENGTH_1": "Onipresente",
+            "STRENGTH_2": "Zero configuração",
+            "STRENGTH_3": "Arquivo único",
+            "WEAKNESS_1": "Concorrência (muitas escritas)",
+            "WEAKNESS_2": "Sem acesso de rede embutido",
+            "USE_CASE_1": "Apps Mobile",
+            "USE_CASE_2": "IoT",
+            "USE_CASE_3": "Desktop Apps",
+            "USE_CASE_4": "Testes"
+        },
+        "REALM": {
+            "DESCRIPTION": "Banco de dados móvel que permite aplicações offline-first.",
+            "STRENGTH_1": "Sincronização offline-first",
+            "STRENGTH_2": "Orientado a objetos",
+            "STRENGTH_3": "Reativo",
+            "WEAKNESS_1": "Bloqueio de fornecedor (MongoDB Atlas)",
+            "WEAKNESS_2": "Migrações de schema",
+            "USE_CASE_1": "Apps Móveis Offline",
+            "USE_CASE_2": "Jogos",
+            "USE_CASE_3": "IoT Edge"
+        },
+        "ELASTICSEARCH": {
+            "DESCRIPTION": "Motor de busca e analytics distribuído e RESTful.",
+            "STRENGTH_1": "Busca em texto completo",
+            "STRENGTH_2": "Análise de Logs",
+            "STRENGTH_3": "Agregações Complexas",
+            "WEAKNESS_1": "Durabilidade de dados (não é store primário)",
+            "WEAKNESS_2": "Consumo de recursos",
+            "USE_CASE_1": "Busca",
+            "USE_CASE_2": "Observabilidade",
+            "USE_CASE_3": "Análise de Segurança"
+        }
+    },
+    "DATA_STRUCTURE": {
+        "Relational": "Relacional",
+        "Document": "Documento",
+        "Key-Value": "Chave-Valor",
+        "Graph": "Grafo",
+        "Wide-Column": "Coluna-Larga",
+        "Vector": "Vetorial",
+        "Search Engine": "Motor de Busca"
     },
     "COMMON": {
         "LOADING": "Carregando...",

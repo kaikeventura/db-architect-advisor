@@ -11,15 +11,15 @@ export interface TheoremMetrics {
 export interface Database {
   id: string;
   name: string;
-  type: DataStructure;
-  logo: string; // Icon name from Lucide or path
-  description: string;
+  type: DataStructure; // This will also be translated
+  logo: string;
+  description: string; // Translation Key
   theorems: TheoremMetrics;
-  strengths: string[];
-  weaknesses: string[];
-  useCases: string[];
-  costTier: 1 | 2 | 3 | 4; // 1 = $, 4 = $$$$
-  complexity: number; // 1-10
+  strengths: string[]; // Translation Keys
+  weaknesses: string[]; // Translation Keys
+  useCases: string[]; // Translation Keys
+  costTier: 1 | 2 | 3 | 4;
+  complexity: number;
   scalability: 'Vertical' | 'Horizontal' | 'Both';
 }
 
