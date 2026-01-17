@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:pages": "ng build --base-href /db-architect-advisor/ && cp dist/db-architect-advisor/browser/index.html dist/db-architect-advisor/browser/404.html",
+    "deploy": "npx angular-cli-ghpages --dir=dist/db-architect-advisor/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
