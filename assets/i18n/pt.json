@@ -11,6 +11,7 @@
         "BACK": "Voltar",
         "NEXT": "Próximo",
         "FINISH": "Ver Recomendações",
+        "EXAMPLES": "Exemplos:",
         "Q_CAP": {
             "TITLE": "Qual atributo do Teorema CAP é inegociável?",
             "DESC": "Em caso de uma partição de rede, qual é a sua prioridade?",
@@ -24,15 +25,36 @@
             }
         },
         "Q_STRUCTURE": {
-            "TITLE": "Qual estrutura de dados se adapta melhor?",
-            "DESC": "Qual é o formato predominante dos seus dados?",
-            "OPT_RELATIONAL": "Relacional (Tabelas)",
-            "OPT_DOCUMENT": "Documentos JSON",
-            "OPT_KEYVALUE": "Chave-Valor",
-            "OPT_GRAPH": "Grafos / Relacionamentos",
-            "OPT_WIDECOLUMN": "Colunas Largas",
-            "OPT_VECTOR": "Busca Vetorial",
-            "OPT_SEARCH": "Motor de Busca"
+            "TITLE": "Qual estrutura de dados se encaixa melhor?",
+            "DESC": "Qual é a forma predominante dos seus dados?",
+            "OPT_RELATIONAL": {
+                "LABEL": "Relacional (Tabelas)",
+                "EXAMPLES": "Pedidos de e-commerce, Livros contábeis, Sistemas ERP/CRM."
+            },
+            "OPT_DOCUMENT": {
+                "LABEL": "Documentos JSON",
+                "EXAMPLES": "Catálogos de produtos, Perfis de usuário, Posts de blog."
+            },
+            "OPT_KEYVALUE": {
+                "LABEL": "Chave-Valor",
+                "EXAMPLES": "Sessões de usuário, Cache, Preferências, Feature flags."
+            },
+            "OPT_GRAPH": {
+                "LABEL": "Grafos / Relacionamentos",
+                "EXAMPLES": "Redes sociais, Detecção de fraude, Motores de recomendação."
+            },
+            "OPT_WIDECOLUMN": {
+                "LABEL": "Colunas Largas",
+                "EXAMPLES": "Dados de sensores IoT, Métricas temporais em escala massiva."
+            },
+            "OPT_VECTOR": {
+                "LABEL": "Busca Vetorial",
+                "EXAMPLES": "Contexto para IA/LLM (RAG), Busca por imagem, Pesquisa semântica."
+            },
+            "OPT_SEARCH": {
+                "LABEL": "Motor de Busca",
+                "EXAMPLES": "Busca textual completa, Análise de logs, Auto-complete."
+            }
         },
         "Q_PACELC": {
             "TITLE": "Quão crítica é latência vs consistência (PACELC)?",

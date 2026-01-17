@@ -11,6 +11,7 @@
         "BACK": "Back",
         "NEXT": "Next",
         "FINISH": "See Recommendations",
+        "EXAMPLES": "Examples:",
         "Q_CAP": {
             "TITLE": "Which CAP Theorem attribute is non-negotiable?",
             "DESC": "In the event of a network partition, what is your priority?",
@@ -26,13 +27,34 @@
         "Q_STRUCTURE": {
             "TITLE": "What fits your data model best?",
             "DESC": "What is the predominant shape of your data?",
-            "OPT_RELATIONAL": "Relational (Tables)",
-            "OPT_DOCUMENT": "JSON Documents",
-            "OPT_KEYVALUE": "Key-Value Pairs",
-            "OPT_GRAPH": "Graph / Relationships",
-            "OPT_WIDECOLUMN": "Wide Column",
-            "OPT_VECTOR": "Vector Search",
-            "OPT_SEARCH": "Search Engine"
+            "OPT_RELATIONAL": {
+                "LABEL": "Relational (Tables)",
+                "EXAMPLES": "E-commerce orders, Financial ledgers, CRM systems."
+            },
+            "OPT_DOCUMENT": {
+                "LABEL": "JSON Documents",
+                "EXAMPLES": "Product catalogs, User profiles, Blog posts."
+            },
+            "OPT_KEYVALUE": {
+                "LABEL": "Key-Value Pairs",
+                "EXAMPLES": "User sessions, Caching, Preferences, Feature flags."
+            },
+            "OPT_GRAPH": {
+                "LABEL": "Graph / Relationships",
+                "EXAMPLES": "Social networks, Fraud detection, Recommendation engines."
+            },
+            "OPT_WIDECOLUMN": {
+                "LABEL": "Wide Column",
+                "EXAMPLES": "IoT sensor data, Time-series metrics at massive scale."
+            },
+            "OPT_VECTOR": {
+                "LABEL": "Vector Search",
+                "EXAMPLES": "AI/LLM context (RAG), Image similarity, Semantic search."
+            },
+            "OPT_SEARCH": {
+                "LABEL": "Search Engine",
+                "EXAMPLES": "Full-text search, Log analytics, Auto-complete."
+            }
         },
         "Q_PACELC": {
             "TITLE": "How critical is latency vs consistency (PACELC)?",
