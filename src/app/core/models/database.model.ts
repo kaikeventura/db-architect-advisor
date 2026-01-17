@@ -18,7 +18,7 @@ export interface Database {
   strengths: string[];
   weaknesses: string[];
   useCases: string[];
-  costTier: 1 | 2 | 3; // 1 = $, 3 = $$$
+  costTier: 1 | 2 | 3 | 4; // 1 = $, 4 = $$$$
   complexity: number; // 1-10
   scalability: 'Vertical' | 'Horizontal' | 'Both';
 }

@@ -78,8 +78,10 @@
                         </div>
                         <div class="bg-slate-800/50 p-3 rounded-lg text-center">
                             <span class="block text-xs text-slate-500">Cost</span>
-                            <span class="text-lg font-bold text-white">{{ bestMatch.database.costTier === 1 ? '$' :
-                                (bestMatch.database.costTier === 2 ? '$$' : '$$$') }}</span>
+                            <span class="text-lg font-bold text-white">
+                                {{ bestMatch.database.costTier === 1 ? '$' : (bestMatch.database.costTier === 2 ? '$$' :
+                                (bestMatch.database.costTier === 3 ? '$$$' : '$$$$')) }}
+                            </span>
                         </div>
                     </div>
 
