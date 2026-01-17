@@ -9,7 +9,7 @@ interface Question {
     title: string;
     description: string;
     key: keyof QuestionnaireInput;
-    options: { label: string; value: any; icon?: string; desc?: string }[];
+    options: { label: string; value: any; icon?: string; desc?: string; examples?: string }[];
 }
 
 @Component({
@@ -58,13 +58,13 @@ export class WizardComponent {
             description: 'WIZARD.Q_STRUCTURE.DESC',
             key: 'dataStructure',
             options: [
-                { label: 'WIZARD.Q_STRUCTURE.OPT_RELATIONAL', value: 'Relational', icon: 'table' },
-                { label: 'WIZARD.Q_STRUCTURE.OPT_DOCUMENT', value: 'Document', icon: 'file-json' },
-                { label: 'WIZARD.Q_STRUCTURE.OPT_KEYVALUE', value: 'Key-Value', icon: 'zap' },
-                { label: 'WIZARD.Q_STRUCTURE.OPT_VECTOR', value: 'Vector', icon: 'brain-circuit' },
-                { label: 'WIZARD.Q_STRUCTURE.OPT_GRAPH', value: 'Graph', icon: 'share-2' },
-                { label: 'WIZARD.Q_STRUCTURE.OPT_WIDECOLUMN', value: 'Wide-Column', icon: 'columns' },
-                { label: 'WIZARD.Q_STRUCTURE.OPT_SEARCH', value: 'Search Engine', icon: 'search' }
+                { label: 'WIZARD.Q_STRUCTURE.OPT_RELATIONAL.LABEL', value: 'Relational', icon: 'table', examples: 'WIZARD.Q_STRUCTURE.OPT_RELATIONAL.EXAMPLES' },
+                { label: 'WIZARD.Q_STRUCTURE.OPT_DOCUMENT.LABEL', value: 'Document', icon: 'file-json', examples: 'WIZARD.Q_STRUCTURE.OPT_DOCUMENT.EXAMPLES' },
+                { label: 'WIZARD.Q_STRUCTURE.OPT_KEYVALUE.LABEL', value: 'Key-Value', icon: 'zap', examples: 'WIZARD.Q_STRUCTURE.OPT_KEYVALUE.EXAMPLES' },
+                { label: 'WIZARD.Q_STRUCTURE.OPT_VECTOR.LABEL', value: 'Vector', icon: 'brain-circuit', examples: 'WIZARD.Q_STRUCTURE.OPT_VECTOR.EXAMPLES' },
+                { label: 'WIZARD.Q_STRUCTURE.OPT_GRAPH.LABEL', value: 'Graph', icon: 'share-2', examples: 'WIZARD.Q_STRUCTURE.OPT_GRAPH.EXAMPLES' },
+                { label: 'WIZARD.Q_STRUCTURE.OPT_WIDECOLUMN.LABEL', value: 'Wide-Column', icon: 'columns', examples: 'WIZARD.Q_STRUCTURE.OPT_WIDECOLUMN.EXAMPLES' },
+                { label: 'WIZARD.Q_STRUCTURE.OPT_SEARCH.LABEL', value: 'Search Engine', icon: 'search', examples: 'WIZARD.Q_STRUCTURE.OPT_SEARCH.EXAMPLES' }
             ]
         },
         {
