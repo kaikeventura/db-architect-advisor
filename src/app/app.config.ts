@@ -4,7 +4,7 @@ import { routes } from './app.routes';
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
-import { LucideAngularModule, ArrowRight, Check, Disc, Circle, Database, Layers, DollarSign, Activity, FileJson, Share2, Search, Table, Key, Lock, AlertTriangle, Zap, Box, BrainCircuit, Github, Columns, Smartphone, Globe, Cpu } from 'lucide-angular';
+import { LucideAngularModule, ArrowRight, Check, Disc, Circle, Database, Layers, DollarSign, Activity, FileJson, Share2, Search, Table, Key, Lock, AlertTriangle, Zap, Box, BrainCircuit, Github, Columns, Smartphone, Globe, Cpu, ArrowUp, CheckCircle } from 'lucide-angular';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,7 +20,7 @@ export const appConfig: ApplicationConfig = {
     }),
     importProvidersFrom(
       LucideAngularModule.pick({
-        ArrowRight, Check, Disc, Circle, Database, Layers, DollarSign, Activity, FileJson, Share2, Search, Table, Key, Lock, AlertTriangle, Zap, Box, BrainCircuit, Github, Columns, Smartphone, Globe, Cpu
+        ArrowRight, Check, Disc, Circle, Database, Layers, DollarSign, Activity, FileJson, Share2, Search, Table, Key, Lock, AlertTriangle, Zap, Box, BrainCircuit, Github, Columns, Smartphone, Globe, Cpu, ArrowUp, CheckCircle
       })
     )
   ]

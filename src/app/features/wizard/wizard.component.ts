@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QuestionnaireInput } from '../../core/models/database.model';
-import { LucideAngularModule, ArrowRight, Check, Disc, Database, Layers, DollarSign, Activity, FileJson, Share2, Search, Table, Key, Lock, AlertTriangle } from 'lucide-angular';
+import { LucideAngularModule, ArrowRight, Check, Disc, Database, Layers, DollarSign, Activity, FileJson, Share2, Search, Table, Key, Lock, AlertTriangle, ArrowUp, CheckCircle, Zap } from 'lucide-angular';
 import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 
 interface Question {
@@ -34,26 +34,46 @@ export class WizardComponent {
     questions: Question[] = [
         {
             id: 1,
-            title: 'WIZARD.Q_CAP.TITLE',
-            description: 'WIZARD.Q_CAP.DESC',
-            key: 'consistencyPreference',
+            title: 'WIZARD.Q_PARTITION.TITLE',
+            description: 'WIZARD.Q_PARTITION.DESC',
+            key: 'partitionStrategy',
             options: [
                 {
-                    label: 'WIZARD.Q_CAP.OPT_CONSISTENCY.LABEL',
-                    value: 'Strong',
+                    label: 'WIZARD.Q_PARTITION.OPT_CONSISTENCY.LABEL',
+                    value: 'Consistency',
                     icon: 'lock',
-                    desc: 'WIZARD.Q_CAP.OPT_CONSISTENCY.DESC'
+                    desc: 'WIZARD.Q_PARTITION.OPT_CONSISTENCY.DESC'
                 },
                 {
-                    label: 'WIZARD.Q_CAP.OPT_AVAILABILITY.LABEL',
-                    value: 'Eventual',
+                    label: 'WIZARD.Q_PARTITION.OPT_AVAILABILITY.LABEL',
+                    value: 'Availability',
                     icon: 'activity',
-                    desc: 'WIZARD.Q_CAP.OPT_AVAILABILITY.DESC'
+                    desc: 'WIZARD.Q_PARTITION.OPT_AVAILABILITY.DESC'
                 }
             ]
         },
         {
             id: 2,
+            title: 'WIZARD.Q_NORMAL_OP.TITLE',
+            description: 'WIZARD.Q_NORMAL_OP.DESC',
+            key: 'normalOperationPriority',
+            options: [
+                {
+                    label: 'WIZARD.Q_NORMAL_OP.OPT_LATENCY.LABEL',
+                    value: 'Latency',
+                    icon: 'zap',
+                    desc: 'WIZARD.Q_NORMAL_OP.OPT_LATENCY.DESC'
+                },
+                {
+                    label: 'WIZARD.Q_NORMAL_OP.OPT_CONSISTENCY.LABEL',
+                    value: 'Consistency',
+                    icon: 'lock',
+                    desc: 'WIZARD.Q_NORMAL_OP.OPT_CONSISTENCY.DESC'
+                }
+            ]
+        },
+        {
+            id: 3,
             title: 'WIZARD.Q_STRUCTURE.TITLE',
             description: 'WIZARD.Q_STRUCTURE.DESC',
             key: 'dataStructure',
@@ -68,17 +88,27 @@ export class WizardComponent {
             ]
         },
         {
-            id: 3,
-            title: 'WIZARD.Q_PACELC.TITLE',
-            description: 'WIZARD.Q_PACELC.DESC',
-            key: 'latencySensitivity',
+            id: 4,
+            title: 'WIZARD.Q_SCALABILITY.TITLE',
+            description: 'WIZARD.Q_SCALABILITY.DESC',
+            key: 'scalabilityNeed',
             options: [
-                { label: 'WIZARD.Q_PACELC.OPT_LATENCY.LABEL', value: 'High', desc: 'WIZARD.Q_PACELC.OPT_LATENCY.DESC' },
-                { label: 'WIZARD.Q_PACELC.OPT_CONSISTENCY.LABEL', value: 'Low', desc: 'WIZARD.Q_PACELC.OPT_CONSISTENCY.DESC' }
+                { label: 'WIZARD.Q_SCALABILITY.OPT_VERTICAL.LABEL', value: 'Vertical', icon: 'arrow-up' },
+                { label: 'WIZARD.Q_SCALABILITY.OPT_HORIZONTAL.LABEL', value: 'Horizontal', icon: 'layers' }
             ]
         },
         {
-            id: 4,
+            id: 5,
+            title: 'WIZARD.Q_TRANSACTIONS.TITLE',
+            description: 'WIZARD.Q_TRANSACTIONS.DESC',
+            key: 'transactionType',
+            options: [
+                { label: 'WIZARD.Q_TRANSACTIONS.OPT_ACID.LABEL', value: 'ACID', icon: 'check-circle' },
+                { label: 'WIZARD.Q_TRANSACTIONS.OPT_EVENTUAL.LABEL', value: 'Eventual', icon: 'activity' }
+            ]
+        },
+        {
+            id: 6,
             title: 'WIZARD.Q_BUDGET.TITLE',
             description: 'WIZARD.Q_BUDGET.DESC',
             key: 'budget',
@@ -107,7 +137,6 @@ export class WizardComponent {
 
     finish() {
         const finalAnswers = this.answers() as QuestionnaireInput;
-        finalAnswers.partitionTolerance = true;
         this.complete.emit(finalAnswers);
     }
 

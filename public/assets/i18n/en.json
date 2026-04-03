@@ -12,7 +12,7 @@
         "NEXT": "Next",
         "FINISH": "See Recommendations",
         "EXAMPLES": "Examples:",
-        "Q_CAP": {
+        "Q_PARTITION": {
             "TITLE": "Which CAP Theorem attribute is non-negotiable?",
             "DESC": "In the event of a network partition, what is your priority?",
             "OPT_CONSISTENCY": {
@@ -56,16 +56,40 @@
                 "EXAMPLES": "Full-text search, Log analytics, Auto-complete."
             }
         },
-        "Q_PACELC": {
+        "Q_NORMAL_OP": {
             "TITLE": "How critical is latency vs consistency (PACELC)?",
             "DESC": "During normal operation, how sensitive is your application to latency?",
             "OPT_LATENCY": {
-                "LABEL": "Latency Critical",
+                "LABEL": "Latency Critical (EL)",
                 "DESC": "Every millisecond counts (Real-time, Gaming)."
             },
             "OPT_CONSISTENCY": {
-                "LABEL": "Consistency Critical",
+                "LABEL": "Consistency Critical (EC)",
                 "DESC": "I prefer stricter data integrity over raw speed."
+            }
+        },
+        "Q_SCALABILITY": {
+            "TITLE": "What are your scalability requirements?",
+            "DESC": "How do you plan to handle data volume growth?",
+            "OPT_VERTICAL": {
+                "LABEL": "Vertical Scalability (Scale-up)",
+                "DESC": "Increasing CPU/RAM of current server (Small to medium systems)."
+            },
+            "OPT_HORIZONTAL": {
+                "LABEL": "Horizontal Scalability (Scale-out)",
+                "DESC": "Distributing data across multiple servers/sharding (Massive scale)."
+            }
+        },
+        "Q_TRANSACTIONS": {
+            "TITLE": "What are the transaction requirements?",
+            "DESC": "Do you need ACID guarantees across multiple tables/documents in a distributed way?",
+            "OPT_ACID": {
+                "LABEL": "Strong ACID Transactions",
+                "DESC": "Total guarantee of atomicity and isolation (Essential for finance)."
+            },
+            "OPT_EVENTUAL": {
+                "LABEL": "Eventual Consistency / Atomic per Key",
+                "DESC": "Simple transactions or eventual consistency are enough for the use case."
             }
         },
         "Q_BUDGET": {
@@ -85,18 +109,25 @@
         "LABEL_USE_CASES": "BEST FIT FOR",
         "ALTERNATIVES": "Alternative Viable Options",
         "REASONS": {
+            "CONSISTENCY_PARTITION": "Guarantees Consistency during network partition (CP).",
+            "AVAILABILITY_PARTITION": "Guarantees Availability during network partition (AP).",
+            "CONSISTENCY_NORMAL": "Prioritizes Consistency during normal operation (EC).",
             "PRIORITIZES_CONSISTENCY": "Matches your Strong Consistency requirement.",
             "PRIORITIZES_AVAILABILITY": "Matches your High Availability preference.",
             "CONSISTENCY_CONFLICT": "Stricter than your consistency requirement.",
             "NATIVE_SUPPORT": "Native data format support.",
             "COMPATIBLE_SUPPORT": "Supports requested data through extensions/layers.",
             "LOW_LATENCY": "Optimized for ultra-low latency response.",
-            "FITS_BUDGET": "Fits within your budget constraints."
+            "FITS_BUDGET": "Fits within your budget constraints.",
+            "HORIZONTAL_SCALE": "Native for massive horizontal scalability.",
+            "DISTRIBUTED_ACID": "Supports distributed ACID transactions."
         },
         "TRADEOFFS": {
             "CONSISTENCY_CONFLICT": "Eventual Consistency model may require app-side handling.",
             "LATENCY_IMPACT": "Consistency checks may impact latency in distributed setups.",
-            "HIGHER_COST": "Higher cost tier than preferred budget."
+            "HIGHER_COST": "Higher cost tier than preferred budget.",
+            "VERTICAL_LIMIT": "May face challenges when scaling horizontally in the future.",
+            "LATENCY_TRADE": "Ensuring consistency during normal operation adds network overhead."
         },
         "METRICS": {
             "CAP": "CAP",
