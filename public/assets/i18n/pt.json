@@ -12,16 +12,16 @@
         "NEXT": "Próximo",
         "FINISH": "Ver Recomendações",
         "EXAMPLES": "Exemplos:",
-        "Q_CAP": {
-            "TITLE": "Qual atributo do Teorema CAP é inegociável?",
-            "DESC": "Em caso de uma partição de rede, qual é a sua prioridade?",
+        "Q_PARTITION": {
+            "TITLE": "Qual a prioridade durante uma Partição de Rede (Teorema CAP)?",
+            "DESC": "Se os nós do banco não conseguirem se comunicar, o que o sistema deve fazer?",
             "OPT_CONSISTENCY": {
-                "LABEL": "Consistência (CP)",
-                "DESC": "O sistema garante a correção dos dados, mesmo que precise pausar requisições."
+                "LABEL": "Priorizar Consistência (CP)",
+                "DESC": "O sistema recusa escritas/leituras para evitar dados divergentes até que a rede estabilize."
             },
             "OPT_AVAILABILITY": {
-                "LABEL": "Disponibilidade (AP)",
-                "DESC": "O sistema garante uma resposta, mesmo que os dados possam estar levemente desatualizados."
+                "LABEL": "Priorizar Disponibilidade (AP)",
+                "DESC": "O sistema continua aceitando leituras e escritas, mesmo que os dados fiquem temporariamente inconsistentes entre nós."
             }
         },
         "Q_STRUCTURE": {
@@ -56,16 +56,40 @@
                 "EXAMPLES": "Busca textual completa, Análise de logs, Auto-complete."
             }
         },
-        "Q_PACELC": {
-            "TITLE": "Quão crítica é latência vs consistência (PACELC)?",
-            "DESC": "Durante a operação normal, quão sensível é sua aplicação à latência?",
+        "Q_NORMAL_OP": {
+            "TITLE": "Em operação normal (sem falhas), qual o foco (PACELC)?",
+            "DESC": "Como o sistema deve se comportar quando a rede está saudável?",
             "OPT_LATENCY": {
-                "LABEL": "Crítico para Latência",
-                "DESC": "Cada milissegundo conta (Tempo Real, Jogos)."
+                "LABEL": "Priorizar Baixa Latência (EL)",
+                "DESC": "Resposta ultra rápida é vital. Aceito consistência eventual para ganhar performance."
             },
             "OPT_CONSISTENCY": {
-                "LABEL": "Crítico para Consistência",
-                "DESC": "Prefiro integridade de dados estrita em vez de velocidade bruta."
+                "LABEL": "Priorizar Consistência (EC)",
+                "DESC": "A integridade absoluta dos dados é mais importante que alguns milissegundos extras de espera."
+            }
+        },
+        "Q_SCALABILITY": {
+            "TITLE": "Qual a sua necessidade de escalabilidade?",
+            "DESC": "Como você planeja lidar com o crescimento do volume de dados?",
+            "OPT_VERTICAL": {
+                "LABEL": "Escalabilidade Vertical (Scale-up)",
+                "DESC": "Aumentar CPU/RAM do servidor atual resolve (Sistemas menores a médios)."
+            },
+            "OPT_HORIZONTAL": {
+                "LABEL": "Escalabilidade Horizontal (Scale-out)",
+                "DESC": "Distribuir dados em múltiplos servidores/sharding (Escala massiva)."
+            }
+        },
+        "Q_TRANSACTIONS": {
+            "TITLE": "Qual o requisito de transações e atomicidade?",
+            "DESC": "Você precisa garantir ACID em múltiplas tabelas/documentos de forma distribuída?",
+            "OPT_ACID": {
+                "LABEL": "Transações ACID Fortes",
+                "DESC": "Garantia total de atomicidade e isolamento (Essencial para finanças)."
+            },
+            "OPT_EVENTUAL": {
+                "LABEL": "Consistência Eventual / Atômico por Chave",
+                "DESC": "Transações simples ou consistência eventual são suficientes para o volume e tipo de uso."
             }
         },
         "Q_BUDGET": {
@@ -85,18 +109,25 @@
         "LABEL_USE_CASES": "IDEAL PARA",
         "ALTERNATIVES": "Alternativas Viáveis",
         "REASONS": {
+            "CONSISTENCY_PARTITION": "Garante Consistência durante partição de rede (CP).",
+            "AVAILABILITY_PARTITION": "Garante Disponibilidade durante partição de rede (AP).",
+            "CONSISTENCY_NORMAL": "Prioriza Consistência em operação normal (EC).",
             "PRIORITIZES_CONSISTENCY": "Atende ao requisito de Consistência Estrita.",
             "PRIORITIZES_AVAILABILITY": "Prioriza Alta Disponibilidade conforme sua preferência.",
             "CONSISTENCY_CONFLICT": "Modelo de consistência mais rígido que o solicitado.",
             "NATIVE_SUPPORT": "Suporte nativo ao formato de dados.",
             "COMPATIBLE_SUPPORT": "Suporta os dados solicitados via extensões ou camadas.",
             "LOW_LATENCY": "Otimizado para respostas de ultra-baixa latência.",
-            "FITS_BUDGET": "Se ajusta à sua faixa de orçamento."
+            "FITS_BUDGET": "Se ajusta à sua faixa de orçamento.",
+            "HORIZONTAL_SCALE": "Nativo para escalabilidade horizontal massiva.",
+            "DISTRIBUTED_ACID": "Suporta transações ACID distribuídas."
         },
         "TRADEOFFS": {
             "CONSISTENCY_CONFLICT": "Modelo de Consistência Eventual pode exigir tratamento na aplicação.",
             "LATENCY_IMPACT": "Verificações de consistência podem impactar latência em setups distribuídos.",
-            "HIGHER_COST": "Nível de custo superior ao orçamento preferencial."
+            "HIGHER_COST": "Nível de custo superior ao orçamento preferencial.",
+            "VERTICAL_LIMIT": "Pode apresentar desafios ao escalar horizontalmente no futuro.",
+            "LATENCY_TRADE": "A garantia de consistência em operação normal adiciona overhead de rede."
         },
         "METRICS": {
             "CAP": "CAP",

@@ -21,14 +21,16 @@ export interface Database {
   costTier: 1 | 2 | 3 | 4;
   complexity: number;
   scalability: 'Vertical' | 'Horizontal' | 'Both';
+  distributedTransactions: boolean;
 }
 
 export interface QuestionnaireInput {
-  consistencyPreference: 'Strong' | 'Eventual';
-  partitionTolerance: boolean; // Almost always yes for distributed
-  latencySensitivity: 'Low' | 'High'; // High means we need low latency
+  partitionStrategy: 'Consistency' | 'Availability';
+  normalOperationPriority: 'Latency' | 'Consistency';
   dataStructure: DataStructure;
   budget: 'Low' | 'Medium' | 'High';
+  scalabilityNeed: 'Vertical' | 'Horizontal';
+  transactionType: 'ACID' | 'Eventual';
 }
 
 export interface RecommendationResult {

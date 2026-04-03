@@ -14,7 +14,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.POSTGRESQL.USE_CASE_1', 'DB_KNOWLEDGE.POSTGRESQL.USE_CASE_2', 'DB_KNOWLEDGE.POSTGRESQL.USE_CASE_3', 'DB_KNOWLEDGE.POSTGRESQL.USE_CASE_4'],
         costTier: 1,
         complexity: 4,
-        scalability: 'Vertical'
+        scalability: 'Vertical',
+        distributedTransactions: false
     },
     {
         id: 'cockroachdb',
@@ -28,7 +29,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.COCKROACHDB.USE_CASE_1', 'DB_KNOWLEDGE.COCKROACHDB.USE_CASE_2', 'DB_KNOWLEDGE.COCKROACHDB.USE_CASE_3'],
         costTier: 3,
         complexity: 7,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: true
     },
     {
         id: 'tidb',
@@ -42,7 +44,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.TIDB.USE_CASE_1', 'DB_KNOWLEDGE.TIDB.USE_CASE_2'],
         costTier: 2,
         complexity: 7,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: true
     },
     {
         id: 'yugabytedb',
@@ -56,7 +59,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.YUGABYTEDB.USE_CASE_1', 'DB_KNOWLEDGE.YUGABYTEDB.USE_CASE_2', 'DB_KNOWLEDGE.YUGABYTEDB.USE_CASE_3'],
         costTier: 2,
         complexity: 6,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: true
     },
     {
         id: 'aurora-serverless',
@@ -70,7 +74,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.AURORA.USE_CASE_1', 'DB_KNOWLEDGE.AURORA.USE_CASE_2', 'DB_KNOWLEDGE.AURORA.USE_CASE_3'],
         costTier: 3,
         complexity: 3,
-        scalability: 'Vertical'
+        scalability: 'Vertical',
+        distributedTransactions: true
     },
     {
         id: 'spanner',
@@ -84,7 +89,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.SPANNER.USE_CASE_1', 'DB_KNOWLEDGE.SPANNER.USE_CASE_2', 'DB_KNOWLEDGE.SPANNER.USE_CASE_3'],
         costTier: 4,
         complexity: 5,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: true
     },
 
     // --- NoSQL (Document & Key-Value) ---
@@ -94,13 +100,14 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         type: 'Document',
         logo: 'file-json',
         description: 'DB_KNOWLEDGE.MONGODB.DESCRIPTION',
-        theorems: { cap: 'CP', pacelc: 'PA/EC' },
+        theorems: { cap: 'CP', pacelc: 'PC/EC' },
         strengths: ['DB_KNOWLEDGE.MONGODB.STRENGTH_1', 'DB_KNOWLEDGE.MONGODB.STRENGTH_2', 'DB_KNOWLEDGE.MONGODB.STRENGTH_3'],
         weaknesses: ['DB_KNOWLEDGE.MONGODB.WEAKNESS_1', 'DB_KNOWLEDGE.MONGODB.WEAKNESS_2'],
         useCases: ['DB_KNOWLEDGE.MONGODB.USE_CASE_1', 'DB_KNOWLEDGE.MONGODB.USE_CASE_2', 'DB_KNOWLEDGE.MONGODB.USE_CASE_3', 'DB_KNOWLEDGE.MONGODB.USE_CASE_4'],
         costTier: 2,
         complexity: 3,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: true
     },
     {
         id: 'dynamodb',
@@ -114,7 +121,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.DYNAMODB.USE_CASE_1', 'DB_KNOWLEDGE.DYNAMODB.USE_CASE_2', 'DB_KNOWLEDGE.DYNAMODB.USE_CASE_3'],
         costTier: 2,
         complexity: 2,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: true
     },
     {
         id: 'redis',
@@ -128,7 +136,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.REDIS.USE_CASE_1', 'DB_KNOWLEDGE.REDIS.USE_CASE_2', 'DB_KNOWLEDGE.REDIS.USE_CASE_3', 'DB_KNOWLEDGE.REDIS.USE_CASE_4'],
         costTier: 2,
         complexity: 3,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: false
     },
     {
         id: 'fauna',
@@ -142,7 +151,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.FAUNA.USE_CASE_1', 'DB_KNOWLEDGE.FAUNA.USE_CASE_2', 'DB_KNOWLEDGE.FAUNA.USE_CASE_3'],
         costTier: 2,
         complexity: 3,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: true
     },
     {
         id: 'cosmosdb',
@@ -156,7 +166,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.COSMOSDB.USE_CASE_1', 'DB_KNOWLEDGE.COSMOSDB.USE_CASE_2', 'DB_KNOWLEDGE.COSMOSDB.USE_CASE_3'],
         costTier: 3,
         complexity: 4,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: true
     },
     {
         id: 'firestore',
@@ -170,7 +181,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.FIRESTORE.USE_CASE_1', 'DB_KNOWLEDGE.FIRESTORE.USE_CASE_2', 'DB_KNOWLEDGE.FIRESTORE.USE_CASE_3'],
         costTier: 2,
         complexity: 2,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: true
     },
 
     // --- Wide Column & Time Series ---
@@ -186,7 +198,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.CASSANDRA.USE_CASE_1', 'DB_KNOWLEDGE.CASSANDRA.USE_CASE_2', 'DB_KNOWLEDGE.CASSANDRA.USE_CASE_3'],
         costTier: 1,
         complexity: 8,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: false
     },
     {
         id: 'scylladb',
@@ -200,7 +213,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.SCYLLADB.USE_CASE_1', 'DB_KNOWLEDGE.SCYLLADB.USE_CASE_2', 'DB_KNOWLEDGE.SCYLLADB.USE_CASE_3'],
         costTier: 2,
         complexity: 6,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: false
     },
     {
         id: 'influxdb',
@@ -214,7 +228,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.INFLUXDB.USE_CASE_1', 'DB_KNOWLEDGE.INFLUXDB.USE_CASE_2', 'DB_KNOWLEDGE.INFLUXDB.USE_CASE_3'],
         costTier: 2,
         complexity: 4,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: false
     },
     {
         id: 'timescaledb',
@@ -228,7 +243,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.TIMESCALEDB.USE_CASE_1', 'DB_KNOWLEDGE.TIMESCALEDB.USE_CASE_2', 'DB_KNOWLEDGE.TIMESCALEDB.USE_CASE_3'],
         costTier: 2,
         complexity: 4,
-        scalability: 'Vertical'
+        scalability: 'Vertical',
+        distributedTransactions: false
     },
     {
         id: 'prometheus',
@@ -242,7 +258,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.PROMETHEUS.USE_CASE_1', 'DB_KNOWLEDGE.PROMETHEUS.USE_CASE_2'],
         costTier: 1,
         complexity: 5,
-        scalability: 'Vertical'
+        scalability: 'Vertical',
+        distributedTransactions: false
     },
 
     // --- Graph ---
@@ -258,7 +275,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.NEO4J.USE_CASE_1', 'DB_KNOWLEDGE.NEO4J.USE_CASE_2', 'DB_KNOWLEDGE.NEO4J.USE_CASE_3'],
         costTier: 3,
         complexity: 5,
-        scalability: 'Vertical'
+        scalability: 'Vertical',
+        distributedTransactions: true
     },
     {
         id: 'arangodb',
@@ -272,7 +290,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.ARANGODB.USE_CASE_1', 'DB_KNOWLEDGE.ARANGODB.USE_CASE_2', 'DB_KNOWLEDGE.ARANGODB.USE_CASE_3'],
         costTier: 2,
         complexity: 5,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: true
     },
     {
         id: 'dgraph',
@@ -286,7 +305,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.DGRAPH.USE_CASE_1', 'DB_KNOWLEDGE.DGRAPH.USE_CASE_2', 'DB_KNOWLEDGE.DGRAPH.USE_CASE_3'],
         costTier: 2,
         complexity: 6,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: true
     },
 
     // --- Vector ---
@@ -302,7 +322,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.PINECONE.USE_CASE_1', 'DB_KNOWLEDGE.PINECONE.USE_CASE_2', 'DB_KNOWLEDGE.PINECONE.USE_CASE_3'],
         costTier: 3,
         complexity: 2,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: false
     },
     {
         id: 'milvus',
@@ -316,7 +337,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.MILVUS.USE_CASE_1', 'DB_KNOWLEDGE.MILVUS.USE_CASE_2', 'DB_KNOWLEDGE.MILVUS.USE_CASE_3'],
         costTier: 1,
         complexity: 6,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: false
     },
     {
         id: 'weaviate',
@@ -330,7 +352,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.WEAVIATE.USE_CASE_1', 'DB_KNOWLEDGE.WEAVIATE.USE_CASE_2', 'DB_KNOWLEDGE.WEAVIATE.USE_CASE_3'],
         costTier: 1,
         complexity: 5,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: false
     },
     {
         id: 'chromadb',
@@ -344,7 +367,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.CHROMADB.USE_CASE_1', 'DB_KNOWLEDGE.CHROMADB.USE_CASE_2', 'DB_KNOWLEDGE.CHROMADB.USE_CASE_3'],
         costTier: 1,
         complexity: 1,
-        scalability: 'Vertical'
+        scalability: 'Vertical',
+        distributedTransactions: false
     },
     {
         id: 'pgvector',
@@ -358,7 +382,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.PGVECTOR.USE_CASE_1', 'DB_KNOWLEDGE.PGVECTOR.USE_CASE_2'],
         costTier: 1,
         complexity: 3,
-        scalability: 'Vertical'
+        scalability: 'Vertical',
+        distributedTransactions: false
     },
 
     // --- OLAP & Search ---
@@ -374,7 +399,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.SNOWFLAKE.USE_CASE_1', 'DB_KNOWLEDGE.SNOWFLAKE.USE_CASE_2', 'DB_KNOWLEDGE.SNOWFLAKE.USE_CASE_3'],
         costTier: 3,
         complexity: 3,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: true
     },
     {
         id: 'clickhouse',
@@ -388,7 +414,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.CLICKHOUSE.USE_CASE_1', 'DB_KNOWLEDGE.CLICKHOUSE.USE_CASE_2', 'DB_KNOWLEDGE.CLICKHOUSE.USE_CASE_3'],
         costTier: 1,
         complexity: 6,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: false
     },
     {
         id: 'bigquery',
@@ -402,7 +429,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.BIGQUERY.USE_CASE_1', 'DB_KNOWLEDGE.BIGQUERY.USE_CASE_2', 'DB_KNOWLEDGE.BIGQUERY.USE_CASE_3'],
         costTier: 2,
         complexity: 2,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: true
     },
     {
         id: 'elasticsearch',
@@ -416,7 +444,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.ELASTICSEARCH.USE_CASE_1', 'DB_KNOWLEDGE.ELASTICSEARCH.USE_CASE_2', 'DB_KNOWLEDGE.ELASTICSEARCH.USE_CASE_3'],
         costTier: 2,
         complexity: 6,
-        scalability: 'Horizontal'
+        scalability: 'Horizontal',
+        distributedTransactions: false
     },
 
     // --- Embedded & Local ---
@@ -432,7 +461,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.DUCKDB.USE_CASE_1', 'DB_KNOWLEDGE.DUCKDB.USE_CASE_2', 'DB_KNOWLEDGE.DUCKDB.USE_CASE_3'],
         costTier: 1,
         complexity: 1,
-        scalability: 'Vertical'
+        scalability: 'Vertical',
+        distributedTransactions: false
     },
     {
         id: 'sqlite',
@@ -446,7 +476,8 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.SQLITE.USE_CASE_1', 'DB_KNOWLEDGE.SQLITE.USE_CASE_2', 'DB_KNOWLEDGE.SQLITE.USE_CASE_3', 'DB_KNOWLEDGE.SQLITE.USE_CASE_4'],
         costTier: 1,
         complexity: 1,
-        scalability: 'Vertical'
+        scalability: 'Vertical',
+        distributedTransactions: false
     },
     {
         id: 'realm',
@@ -460,6 +491,7 @@ export const DATABASE_KNOWLEDGE_BASE: Database[] = [
         useCases: ['DB_KNOWLEDGE.REALM.USE_CASE_1', 'DB_KNOWLEDGE.REALM.USE_CASE_2', 'DB_KNOWLEDGE.REALM.USE_CASE_3'],
         costTier: 2,
         complexity: 3,
-        scalability: 'Vertical'
+        scalability: 'Vertical',
+        distributedTransactions: false
     }
 ];
